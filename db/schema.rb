@@ -10,14 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_29_191712) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_29_213743) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "cards", force: :cascade do |t|
+    t.string "card"
+    t.integer "card_number"
+    t.datetime "created_at", null: false
+    t.string "deck"
+    t.string "image"
+    t.string "meaning"
+    t.string "suit"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "reading_id", null: false
+    t.string "text"
+    t.datetime "updated_at", null: false
+    t.index ["reading_id"], name: "index_messages_on_reading_id"
+  end
+
+  create_table "reading_cards", force: :cascade do |t|
+    t.bigint "card_id", null: false
+    t.datetime "created_at", null: false
+    t.bigint "reading_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_reading_cards_on_card_id"
+    t.index ["reading_id"], name: "index_reading_cards_on_reading_id"
+  end
+
+  create_table "readings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "style"
+    t.string "subject"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_readings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.date "birth_date"
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
@@ -25,4 +65,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_29_191712) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "messages", "readings"
+  add_foreign_key "reading_cards", "cards"
+  add_foreign_key "reading_cards", "readings"
+  add_foreign_key "readings", "users"
 end
