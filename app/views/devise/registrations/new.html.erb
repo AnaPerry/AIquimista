@@ -18,6 +18,13 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.input :birth_date,
+                      required: true,
+                      start_year: 1920 %>
+          <%= f.input :first_name,
+                      required: true %>
+          <%= f.input :last_name,
+                      required: true %>
         </div>
 
         <div class="form-actions">
@@ -28,7 +35,7 @@
       <div class="mt-3">
         <%= render "devise/shared/links" %>
       </div>
-      
+
     </div>
   </div>
 </div>
