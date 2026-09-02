@@ -1,4 +1,4 @@
 class ReadingCard < ApplicationRecord
-  belongs_to :card
+  has_many :cards
   belongs_to :reading
 end
