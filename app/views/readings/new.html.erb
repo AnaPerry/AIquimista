@@ -1,1 +1,8 @@
 <h1>Nova leitura</h1>
+
+<%= simple_form_for(@reading) do |f| %>
+  <%= f.input :subject %>
+  <%= f.association :deck %>
+  <%= f.input :style, collection: [3, 6, 9] %>
+  <%= f.submit "Criar leitura" %>
+<% end %>
