@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get "readings/show"
+  get "readings/new"
+  get "readings/create"
+  get "readings/index"
+  get "readings/destroy"
+  get "messages/show"
+  get "messages/new"
+  get "messages/create"
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -17,5 +25,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:show, :new, :create]
   end
   # Defines the root path route ("/")
-  # root "posts#index"
+  resources :readings, only: [:index, :show, :new, :create, :destroy] do
+    resources :messages, only: [:show, :new, :create]
+  end
 end

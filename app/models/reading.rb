@@ -1,6 +1,6 @@
 class Reading < ApplicationRecord
   belongs_to :user
-  has_many :readings_cards
-  has_many :messages
-  has_many :decks
+  has_many :readings_cards, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :decks, dependent: :destroy
 end
