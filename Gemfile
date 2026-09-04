@@ -47,6 +47,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "devise"
 gem "nokogiri"
+gem "ruby_llm", "~> 1.2.0"
 
 
 
