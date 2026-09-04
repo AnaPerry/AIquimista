@@ -1,0 +1,38 @@
+.hero-banner {
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  opacity: 0.12;
+}
+
+.hero-banner .card-img-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%
+}
+
+.hero-banner h2 {
+  font-size: 32px;
+  color: #181851;
+}
+
+.hero-banner h1 {
+  font-size: 80px;
+  color: #181851;
+   font-family: Georgia, serif;
+}
+
+.hero-banner p {
+  font-size: 24px;
+  color: #b7791f;
+}
