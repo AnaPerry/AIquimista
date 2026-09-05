@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_03_215344) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_05_182024) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,9 +20,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_03_215344) do
     t.datetime "created_at", null: false
     t.string "deck"
     t.integer "deck_id"
-    t.string "down_meaning"
+    t.text "down_meaning"
     t.string "image"
-    t.string "meaning"
+    t.text "meaning"
     t.string "suit"
     t.datetime "updated_at", null: false
   end
@@ -34,9 +34,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_03_215344) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", null: false
     t.bigint "reading_id", null: false
-    t.string "text"
+    t.string "role"
     t.datetime "updated_at", null: false
     t.index ["reading_id"], name: "index_messages_on_reading_id"
   end
@@ -52,10 +53,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_03_215344) do
 
   create_table "readings", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.bigint "deck_id", null: false
     t.string "style"
     t.string "subject"
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.index ["deck_id"], name: "index_readings_on_deck_id"
     t.index ["user_id"], name: "index_readings_on_user_id"
   end
 
@@ -77,5 +80,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_03_215344) do
   add_foreign_key "messages", "readings"
   add_foreign_key "reading_cards", "cards"
   add_foreign_key "reading_cards", "readings"
+  add_foreign_key "readings", "decks"
   add_foreign_key "readings", "users"
 end
