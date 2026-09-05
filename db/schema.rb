@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[8.1].define(version: 2026_09_05_155132) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_05_160428) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -54,7 +53,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_05_155132) do
 
   create_table "readings", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.integer "deck_id"
+    t.bigint "deck_id", null: false
     t.string "style"
     t.string "subject"
     t.datetime "updated_at", null: false
@@ -81,5 +80,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_05_155132) do
   add_foreign_key "messages", "readings"
   add_foreign_key "reading_cards", "cards"
   add_foreign_key "reading_cards", "readings"
+  add_foreign_key "readings", "decks"
   add_foreign_key "readings", "users"
 end
