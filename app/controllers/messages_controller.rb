@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
   def show
-
   end
 
   def new
@@ -8,4 +7,5 @@ class MessagesController < ApplicationController
   end
 
   def create
+  end
 end

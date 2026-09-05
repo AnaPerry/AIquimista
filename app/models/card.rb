@@ -1,4 +1,5 @@
 class Card < ApplicationRecord
   belongs_to :deck
-  belongs_to :reading_card
+  has_many :reading_cards, dependent: :destroy
+  has_many :readings, through: :reading_cards
 end

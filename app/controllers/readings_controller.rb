@@ -1,5 +1,5 @@
 class ReadingsController < ApplicationController
-  before_action :set_readings, only: %i[show,destroy]
+  before_action :set_readings, only: %i[show destroy]
   def show
   end
 
@@ -9,8 +9,10 @@ class ReadingsController < ApplicationController
 
   def create
     @reading = Reading.new(reading_params)
+    @reading.user = current_user
     if @reading.save
-      redirect_to reading_path
+      sortear_cartas
+      redirect_to reading_path(@reading)
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,6 +34,13 @@ class ReadingsController < ApplicationController
   end
 
   def reading_params
-    params.require(:reading).permit(:style, :subject)
+    params.require(:reading).permit(:style, :subject, :deck_id)
+  end
+
+  def sortear_cartas
+    @cartas = Card.order("RANDOM()").limit(@reading.style.to_i)
+    @cartas.each do |carta|
+      ReadingCard.create!(reading: @reading, card: carta)
+    end
   end
 end
