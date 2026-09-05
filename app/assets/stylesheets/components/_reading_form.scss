@@ -1,0 +1,47 @@
+.reading-form-section {
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reading-form-card {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  max-width: 720px;
+  width: 100%;
+}
+
+.reading-form-card label {
+  color: #181851;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.reading-form-card input[type="text"],
+.reading-form-card select {
+  border: 1px solid #ead7a5;
+  border-radius: 10px;
+  padding: 10px 14px;
+  width: 100%;
+  background-color: #fffdf8;
+  margin-bottom: 20px;
+}
+
+.reading-form-card input[type="text"]:focus,
+.reading-form-card select:focus {
+  outline: none;
+  border-color: #b7791f;
+}
+
+.reading-form-card .reading-button:hover {
+  background-color: #b7791f;
+  color: white;
+}
+
+.reading-form-card .reading-divider {
+  width: 100%;
+}

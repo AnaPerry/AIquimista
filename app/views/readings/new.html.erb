@@ -1,7 +1,33 @@
-<h1>Nova leitura</h1>
-<%= simple_form_for(@reading) do |f| %>
-  <%= f.input :subject, label: "Sobre o que é a leitura?" %>
-  <%= f.association :deck, label: "Baralho" %>
-  <%= f.input :style, collection: [["3 cartas", 3], ["6 cartas", 6], ["9 cartas", 9]], label: "Tipo de tiragem" %>
-  <%= f.submit "Criar leitura" %>
-<% end %>
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <div class="col-2 sidebar-section">
+      SIDEBAR
+    </div>
+
+    <div class="col-10 reading-form-section">
+      <div class="card reading-form-card border-0 shadow-sm">
+        <div class="card-body p-5">
+          <div class="daily-card-label">
+            <span></span>
+            <p class="mb-0">Nova leitura</p>
+            <span></span>
+          </div>
+
+          <h1 class="tarot-card-title">Consulte as cartas</h1>
+
+          <%= simple_form_for(@reading) do |f| %>
+            <%= f.input :subject, label: "Sobre o que é a leitura?", placeholder: "Ex: minha vida amorosa" %>
+            <%= f.association :deck, label: "Baralho", include_blank: "Escolha um baralho" %>
+            <%= f.input :style, collection: [["3 cartas", 3], ["6 cartas", 6], ["9 cartas", 9]], label: "Tipo de tiragem", include_blank: "Escolha a tiragem" %>
+
+            <div class="reading-divider">
+              <span></span>
+            </div>
+
+            <%= f.submit "Criar leitura", class: "btn reading-button" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
