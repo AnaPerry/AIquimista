@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_04_002656) do
+
+ActiveRecord::Schema[8.1].define(version: 2026_09_05_155132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,9 +21,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_04_002656) do
     t.datetime "created_at", null: false
     t.string "deck"
     t.integer "deck_id"
-    t.string "down_meaning"
+    t.text "down_meaning"
     t.string "image"
-    t.string "meaning"
+    t.text "meaning"
     t.string "suit"
     t.datetime "updated_at", null: false
   end
@@ -36,6 +37,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_04_002656) do
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.bigint "reading_id", null: false
+    t.string "role"
     t.string "text"
     t.datetime "updated_at", null: false
     t.index ["reading_id"], name: "index_messages_on_reading_id"
@@ -52,7 +54,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_04_002656) do
 
   create_table "readings", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.bigint "deck_id", null: false
+    t.integer "deck_id"
     t.string "style"
     t.string "subject"
     t.datetime "updated_at", null: false
@@ -79,6 +81,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_04_002656) do
   add_foreign_key "messages", "readings"
   add_foreign_key "reading_cards", "cards"
   add_foreign_key "reading_cards", "readings"
-  add_foreign_key "readings", "decks"
   add_foreign_key "readings", "users"
 end
