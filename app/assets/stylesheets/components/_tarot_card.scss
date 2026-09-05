@@ -1,13 +1,17 @@
-//Sidebar
-.sidebar-section {
-  min-height: 100vh;
-  border-right: 1px solid #e5e5e5;
-  background-color: white;
-}
-
 //Hero
 .hero-section {
   border-bottom: 1px solid #e5e5e5;
+  min-height: 430px;
+}
+
+.hero-banner {
+  height: 430px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 // Daily section
@@ -15,9 +19,12 @@
   width: 100%;
   padding: 24px;
   background-color: #fafafa;
+  display: flex;
 }
 
 .daily-card {
+  width: 100%;
+  min-height: 420px;
   border-radius: 20px;
   background-color: white;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
