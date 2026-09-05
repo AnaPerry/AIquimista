@@ -1,73 +1,90 @@
 
-<div class="container-fluid">
-  <div class="row">
-    <!-- COLUNA DA SIDEBAR -->
-    <div class="col-1">
+<div class="container-fluid p-0">
+  <div class="row g-0">
+    <!-- SIDEBAR -->
+    <div class="col-2 sidebar-section">
       SIDEBAR
     </div>
 
-    <!-- COLUNA DO CONTEÚDO -->
-    <div class="col-11">
-      <div class="card text-center border-0 hero-banner">
-        <%= image_tag "AIquimista_logo.jpeg", class: "card-img hero-image" %>
-        <div class="card-img-overlay d-flex align-items-center justify-content-center">
-          <div>
-            <h2>Bem-vindo ao</h2>
-            <h1 class="display-2 fw-bold">
-              AIquimista
-            </h1>
-            <p class="fs-4">
-              Sabedoria ancestral, insights digitais
-            </p>
-          </div>
+    <!-- WELCOME -->
+    <div class="col-10 welcome">
+
+       <!-- HERO / BANNER -->
+       <section class="hero-section">
+        <div class="card text-center border-0 hero-banner">
+
+            <%= image_tag "AIquimista_logo.jpeg",
+              class: "card-img hero-image" %>
+
+            <div class="card-img-overlay d-flex align-items-center justify-content-center">
+              <div>
+
+                <h2>Bem-vindo ao</h2>
+
+                <h1 class="display-2 fw-bold">
+                   AIquimista
+                </h1>
+
+                <p class="fs-4">
+                Sabedoria ancestral, insights digitais
+                </p>
+
+              </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+       </section>
 
-<!-- SESSAO CARTA DO DIA -->
+       <!-- SESSAO CARTA DO DIA -->
 
-<div class="container my-5">
-  <div class="card border-0 shadow-sm rounded-4">
-    <div class="card-body p-4">
-      <div class="row align-items-center">
+          <div class="daily-section">
+            <div class="card daily-card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="row align-items-center">
 
-        <!-- COLUNA DA CARTA -->
-        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
-          <div class="card tarot-card mx-auto">
-            <div class="tarot-card-placeholder">
-              IMAGEM DA CARTA
+                  <!-- COLUNA DA CARTA -->
+                  <div class="col-12 col-md-4 text-center">
+                    <div class="tarot-frame mx-auto">
+                      <div class="tarot-card-placeholder">
+                        IMAGEM DA CARTA
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- COLUNA DO TEXTO -->
+                  <div class="col-12 col-md-8">
+                  <div class="daily-card-label">
+                    <span></span>
+                    <p class="mb-0">Carta do dia</p>
+                    <span></span>
+                  </div>
+                    <h2 class="tarot-card-title">
+                      O Tolo
+                    </h2>
+                    <p class="card-keywords">
+                      Novos começos • Liberdade • Espontaneidade
+                    </p>
+                    <p>
+                      Hoje é um convite para confiar no desconhecido e abraçar o novo.
+                    </p>
+                    <p>
+                      Permita-se dar um passo à frente com leveza, sem medo de errar.
+                    </p>
+                    <p>
+                      A jornada é tão importante quanto o destino.
+                    </p>
+
+                    <div class="reading-divider">
+                      <span></span>
+                    </div>
+
+                    <button class="btn reading-button">
+                      Fazer uma leitura
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-        <!-- COLUNA DO TEXTO -->
-        <div class="col-12 col-md-8">
-          <p class="text-uppercase fw-bold">
-            Carta do dia
-          </p>
-          <h2 class="fw-bold">
-            O Tolo
-          </h2>
-          <p>
-            Novos começos • Liberdade • Espontaneidade
-          </p>
-          <p>
-            Hoje é um convite para confiar no desconhecido e abraçar o novo.
-          </p>
-          <p>
-            Permita-se dar um passo à frente com leveza, sem medo de errar.
-          </p>
-          <p>
-            A jornada é tão importante quanto o destino.
-          </p>
-
-          <button class="btn btn-outline-warning">
-            Fazer uma leitura
-          </button>
-        </div>
       </div>
-    </div>
   </div>
 </div>
