@@ -1,5 +1,5 @@
 class ReadingsController < ApplicationController
-  before_action :set_readings, only: %i[show,destroy]
+  before_action :set_readings, only: %i[show destroy]
   def show
     @message = Message.new
     @messages = @reading.messages

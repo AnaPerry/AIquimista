@@ -17,7 +17,8 @@
 
           <%= simple_form_for(@reading) do |f| %>
             <%= f.input :subject, label: "Sobre o que é a leitura?", placeholder: "Ex: minha vida amorosa" %>
-            <%= f.association :deck, label: "Baralho", include_blank: "Escolha um baralho" %>
+            <%# f.association :deck, label: "Baralho", include_blank: "Escolha um baralho" %>
+            <%= f.input :deck, collection: ["Lenormand", "Rider-Waite-Smith", "Marselha"], label: "Baralho", include_blank: "Escolha um baralho" %>
             <%= f.input :style, collection: [["3 cartas", 3], ["6 cartas", 6], ["9 cartas", 9]], label: "Tipo de tiragem", include_blank: "Escolha a tiragem" %>
 
             <div class="reading-divider">

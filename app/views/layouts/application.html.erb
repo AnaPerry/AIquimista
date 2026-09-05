@@ -24,14 +24,24 @@
   </head>
 
   <body>
-      <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
-  <header>
-    <%= render "shared/navbar" %> <!-- 👈 Add this for navbar -->
-  </header>
+    <%= link_to "Skip to main content", "#main-content", class: "visually-hidden-focusable" %>
+    <header>
+      <%= render "shared/navbar" %> <!-- 👈 Add this for navbar -->
+    </header>
 
-  <main id="main-content">
-    <%= yield %>
-  </main>
+    <div class="container-fluid p-0">
+     <div class="row g-0">
+      <!-- SIDEBAR -->
+      <nav class="col-12 col-md-2 sidebar-layout">
+        <%= render "shared/sidebar" %>
+      </nav>
+
+        <!-- CONTEUDO DAS PAGINAS  -->
+        <main id="main-content" class="col-12 col-md-10">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
     <%= render "shared/flashes" %>
   </body>
 </html>

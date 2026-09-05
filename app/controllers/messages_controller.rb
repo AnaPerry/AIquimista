@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   def create
     @reading = Reading.find(params[:reading_id])
     @message = @reading.messages.new(message_params)
