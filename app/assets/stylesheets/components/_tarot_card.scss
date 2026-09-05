@@ -1,11 +1,20 @@
+//Sidebar
 .sidebar-section {
   min-height: 100vh;
   border-right: 1px solid #e5e5e5;
   background-color: white;
 }
 
+//Hero
 .hero-section {
   border-bottom: 1px solid #e5e5e5;
+}
+
+// Daily section
+.daily-section {
+  width: 100%;
+  padding: 24px;
+  background-color: #fafafa;
 }
 
 .daily-card {
@@ -14,8 +23,10 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
+//Tarot card
 .tarot-frame {
-  width: 320px;
+  width:  100%;
+  max-width: 320px;
   height: 410px;
   border: 1px solid #ead7a5;
   border-radius: 16px;
@@ -36,12 +47,7 @@
   background-color: white;
 }
 
-.daily-section {
-  width: 100%;
-  padding: 24px;
-  background-color: #fafafa;
-}
-
+// Daily card content
 .daily-card-label {
   display: flex;
   align-items: center;
@@ -76,8 +82,10 @@
   margin-bottom: 25px;
 }
 
+// Reading Call to Action
 .reading-divider {
-  width: 520px;
+  width: 100%;
+  max-width: 520px;
   height: 20px;
   margin-top: 25px;
   margin-bottom: 15px;
