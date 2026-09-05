@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   MAX_USER_MESSAGE = 10
 
-  act_as_chat
+
 
   private
 

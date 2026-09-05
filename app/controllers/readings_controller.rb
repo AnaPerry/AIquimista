@@ -1,10 +1,13 @@
 class ReadingsController < ApplicationController
   before_action :set_readings, only: %i[show,destroy]
   def show
+    @message = Message.new
+    @messages = @reading.messages
   end
 
   def new
     @reading = Reading.new
+    @message = Message.new
   end
 
   def create
