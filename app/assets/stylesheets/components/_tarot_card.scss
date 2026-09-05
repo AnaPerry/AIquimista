@@ -10,6 +10,13 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
+// Daily section
+.daily-section {
+  width: 100%;
+  padding: 24px;
+  background-color: #fafafa;
+}
+
 .daily-card {
   border-radius: 20px;
   background-color: white;
@@ -40,12 +47,7 @@
   background-color: white;
 }
 
-.daily-section {
-  width: 100%;
-  padding: 24px;
-  background-color: #fafafa;
-}
-
+// Daily card content 
 .daily-card-label {
   display: flex;
   align-items: center;
