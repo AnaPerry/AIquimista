@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get "readings/show"
+  get "readings/new"
+  get "readings/create"
+  get "readings/index"
+  get "readings/destroy"
+  get "messages/show"
+  get "messages/new"
+  get "messages/create"
   devise_for :users
   root to: "pages#home"
     resources :readings, only: [:new, :create, :show, :index]
@@ -12,7 +20,7 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :readings, only: [:index, :show, :new, :create, :destroy] do
+    resources :messages, only: [:show, :new, :create]
+  end
 end
