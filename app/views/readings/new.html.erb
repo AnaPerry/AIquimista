@@ -1,2 +1,9 @@
-<h1>Readings#new</h1>
-<p>Find me in app/views/readings/new.html.erb</p>
+<h1>Nova leitura</h1>
+
+<%= simple_form_for(@reading) do |f| %>
+  <%= f.input :subject, label: "Sobre o que é a leitura?" %>
+  <%= f.association :deck, label: "Baralho" %>
+  <%= f.input :style, collection: [["3 cartas", 3], ["6 cartas", 6], ["9 cartas", 9]], label: "Tipo de tiragem" %>
+  <%= f.submit "Criar leitura" %>
+<% end %>
+
