@@ -215,3 +215,64 @@ cards_data.each do |card_data|
 end
 
 puts "Tarot de Marseille finalizado: #{marseille_deck.cards.count} cartas."
+
+# CRIACAO DAS 78 CARTAS DO SOLA BUSCA
+
+puts "Criando cartas do Sola Busca..."
+
+# Cria um indice das imagens por nome de arquivo.
+# No Sola Busca, as imagens seguem a ordem das 78 cartas:
+# 00.jpg, 01.jpg, 02.jpg ... 77.jpg.
+
+sola_busca_files_by_name = sola_busca_metadata["cards"].index_by do |image|
+  image["card"]
+end
+
+cards_data.each_with_index do |card_data, index|
+
+  # Usa a posicao da carta para encontrar a imagem correspondente.
+  # Exemplo:
+  # The Fool      -> 00.jpg
+  # The Magician  -> 01.jpg
+  # ...
+  # King of Pentacles -> 77.jpg
+
+  expected_filename = format("%02d.jpg", index)
+
+  image_data = sola_busca_files_by_name[expected_filename]
+
+  raise "Imagem Sola Busca nao encontrada para #{card_data["name"]}" unless image_data
+
+  card = Card.find_or_create_by!(
+    card: card_data["name"],
+    deck: sola_busca_deck
+  ) do |new_card|
+
+    new_card.card_number = card_data["number"]
+    new_card.suit = card_data["suit"]
+    new_card.meaning = card_data["upright"]["meaning"]
+    new_card.down_meaning = card_data["reversed"]["meaning"]
+
+  end
+
+  unless card.image.attached?
+
+    image_url =
+      "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/sola-busca/full/#{image_data["card"]}"
+
+    card.image.attach(
+      io: URI.open(image_url),
+      filename: image_data["card"],
+      content_type: "image/jpeg",
+      identify: false
+    )
+
+  end
+
+  puts "Criada: #{card.card}"
+end
+
+puts "Sola Busca finalizado: #{sola_busca_deck.cards.count} cartas."
+
+
+

@@ -18,6 +18,39 @@ require "net/http"
 require "json"
 require "open-uri"
 
+# CARREGA A FONTE DE SIGNIFICADOS
+
+cards_uri = URI(
+  "https://raw.githubusercontent.com/smallcat419/tarot-card-data/main/index.json"
+)
+
+cards_response = Net::HTTP.get(cards_uri)
+cards_data = JSON.parse(cards_response)["cards"]
+
+
+# CARREGA OS METADADOS DOS DECKS
+
+rider_waite_metadata_uri = URI(
+  "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/rider-waite/metadata.json"
+)
+
+marseille_metadata_uri = URI(
+  "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/marseille/metadata.json"
+)
+
+sola_busca_metadata_uri = URI(
+  "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/sola-busca/metadata.json"
+)
+
+rider_waite_metadata =
+  JSON.parse(Net::HTTP.get(rider_waite_metadata_uri))
+
+marseille_metadata =
+  JSON.parse(Net::HTTP.get(marseille_metadata_uri))
+
+sola_busca_metadata =
+  JSON.parse(Net::HTTP.get(sola_busca_metadata_uri))
+
 # Primeira Verificacao: Verifica a quantidade de cartas informada para cada deck
 
 puts "Rider-Waite-Smith: #{rider_waite_metadata["card_count"]} cartas"
@@ -41,30 +74,19 @@ puts marseille_metadata["cards"].first(3)
 puts "\n--- EXEMPLO SOLA BUSCA ---"
 puts sola_busca_metadata["cards"].first(3)
 
-# Terceira Verificacao: a sequencia numerica dos arquivos de imagem dos decks
-# O objetivo e confirmar se existem imagens numeradas de 00 a 77
-# sem numeros faltando antes de usarmos essa numeracao para associar
-# cada imagem a uma carta.
-
-marseille_numbers = marseille_metadata["cards"].map do |card|
-  card["card"][0, 2].to_i
-end
+# Terceira Verificacao: Valida a sequencia numerica das imagens do Sola Busca.
+# O Sola Busca utiliza arquivos numerados sequencialmente de 00.jpg a 77.jpg.
+# O Tarot de Marseille nao utiliza essa estrutura nos Arcanos Menores
+# e, por isso, sera validado separadamente nas verificacoes seguintes.
 
 sola_busca_numbers = sola_busca_metadata["cards"].map do |card|
   File.basename(card["card"], ".*").to_i
 end
 
 expected_numbers = (0..77).to_a
-missing_marseille_numbers = expected_numbers - marseille_numbers
 missing_sola_busca_numbers = expected_numbers - sola_busca_numbers
 
-puts "\n--- VERIFICACAO DA NUMERACAO DAS IMAGENS ---"
-puts "Marseille:"
-puts "Numeros encontrados: #{marseille_numbers.count}"
-puts "Numeros faltando:"
-p missing_marseille_numbers
-
-puts "\nSola Busca:"
+puts "\n--- VERIFICACAO DA NUMERACAO SOLA BUSCA ---"
 puts "Numeros encontrados: #{sola_busca_numbers.count}"
 puts "Numeros faltando:"
 p missing_sola_busca_numbers
