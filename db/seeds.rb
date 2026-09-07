@@ -104,6 +104,39 @@ puts rider_waite_deck.name
 puts marseille_deck.name
 puts sola_busca_deck.name
 
+# LOGICA DE ASSOCIACAO DAS CARTAS COM AS IMAGENS
+#
+# Os tres decks utilizam a mesma fonte de dados para nomes, numeros,
+# naipes e significados das cartas (cards_data), mas cada fonte de
+# imagens possui uma estrutura de arquivos diferente.
+#
+# Rider-Waite-Smith:
+# - As imagens sao obtidas diretamente da pasta "full" do repositorio.
+# - Arcanos Maiores sao localizados pelo numero no inicio do arquivo
+#   (ex.: 00_Fool.jpg).
+# - Arcanos Menores sao localizados pelo naipe + numero
+#   (ex.: Cups01.jpg, Pents14.jpg).
+#
+# Tarot de Marseille:
+# - As imagens sao identificadas a partir do metadata.json.
+# - Arcanos Maiores sao localizados pelo numero no inicio do arquivo
+#   (ex.: 00_Le_Mat.png).
+# - Arcanos Menores sao localizados pelo naipe + numero
+#   (ex.: Cups01.png, Pents14.png).
+# - O nome da carta no arquivo pode estar em frances, por isso a
+#   associacao dos Arcanos Maiores nao depende do nome da carta.
+#
+# Sola Busca:
+# - As imagens sao identificadas a partir do metadata.json.
+# - Os arquivos seguem uma sequencia numerica de 00.jpg a 77.jpg.
+# - A associacao e feita pela posicao da carta em cards_data:
+#   indice 0 -> 00.jpg, indice 1 -> 01.jpg ... indice 77 -> 77.jpg.
+#
+# Em todos os decks, os dados da carta sao atualizados com
+# find_or_initialize_by + assign_attributes + save!, permitindo que
+# o seed funcione tanto para registros novos quanto para existentes.
+
+
 # CRIACAO DAS 78 CARTAS DO RIDER-WAITE-SMITH
 
 puts "Criando cartas do Rider-Waite-Smith..."
@@ -129,15 +162,23 @@ cards_data.each do |card_data|
     end
   end
 
-  card = Card.find_or_create_by!(
+  raise "Imagem Rider-Waite nao encontrada para #{card_data["name"]}" unless image_file
+
+  card = Card.find_or_initialize_by(
     card: card_data["name"],
     deck: rider_waite_deck
-  ) do |new_card|
-    new_card.card_number = card_data["number"]
-    new_card.suit = card_data["suit"]
-    new_card.meaning = card_data["upright"]["meaning"]
-    new_card.down_meaning = card_data["reversed"]["meaning"]
-  end
+  )
+
+  card.assign_attributes(
+    card_number: card_data["arcana"] == "Major" ?
+      card_data["number"].to_i :
+      minor_numbers[card_data["number"]],
+    suit: card_data["suit"],
+    meaning: card_data["upright"]["meaning"],
+    down_meaning: card_data["reversed"]["meaning"]
+  )
+
+card.save!
 
   unless card.image.attached?
     card.image.attach(
@@ -186,17 +227,21 @@ cards_data.each do |card_data|
 
   raise "Imagem Marseille nao encontrada para #{card_data["name"]}" unless image_data
 
-  card = Card.find_or_create_by!(
+  card = Card.find_or_initialize_by(
     card: card_data["name"],
     deck: marseille_deck
-  ) do |new_card|
+  )
 
-    new_card.card_number = card_data["number"]
-    new_card.suit = card_data["suit"]
-    new_card.meaning = card_data["upright"]["meaning"]
-    new_card.down_meaning = card_data["reversed"]["meaning"]
+  card.assign_attributes(
+    card_number: card_data["arcana"] == "Major" ?
+      card_data["number"].to_i :
+      minor_numbers[card_data["number"]],
+    suit: card_data["suit"],
+    meaning: card_data["upright"]["meaning"],
+    down_meaning: card_data["reversed"]["meaning"]
+  )
 
-  end
+card.save!
 
   unless card.image.attached?
 
@@ -243,17 +288,21 @@ cards_data.each_with_index do |card_data, index|
 
   raise "Imagem Sola Busca nao encontrada para #{card_data["name"]}" unless image_data
 
-  card = Card.find_or_create_by!(
+  card = Card.find_or_initialize_by(
     card: card_data["name"],
     deck: sola_busca_deck
-  ) do |new_card|
+  )
 
-    new_card.card_number = card_data["number"]
-    new_card.suit = card_data["suit"]
-    new_card.meaning = card_data["upright"]["meaning"]
-    new_card.down_meaning = card_data["reversed"]["meaning"]
+  card.assign_attributes(
+    card_number: card_data["arcana"] == "Major" ?
+      card_data["number"].to_i :
+      minor_numbers[card_data["number"]],
+    suit: card_data["suit"],
+    meaning: card_data["upright"]["meaning"],
+    down_meaning: card_data["reversed"]["meaning"]
+  )
 
-  end
+card.save!
 
   unless card.image.attached?
 
@@ -273,6 +322,3 @@ cards_data.each_with_index do |card_data, index|
 end
 
 puts "Sola Busca finalizado: #{sola_busca_deck.cards.count} cartas."
-
-
-
