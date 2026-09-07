@@ -151,3 +151,67 @@ cards_data.each do |card_data|
 end
 
 puts "Rider-Waite-Smith finalizado: #{rider_waite_deck.cards.count} cartas."
+
+# CRIACAO DAS 78 CARTAS DO TAROT DE MARSEILLE
+
+puts "Criando cartas do Tarot de Marseille..."
+
+# Cria um indice dos arquivos por nome para localizar
+# as imagens sem percorrer toda a lista a cada carta.
+marseille_files_by_name = marseille_metadata["cards"].index_by do |image|
+  image["card"]
+end
+
+cards_data.each do |card_data|
+
+  if card_data["arcana"] == "Major"
+
+    number = card_data["number"].to_i
+    expected_prefix = format("%02d_", number)
+
+    image_data = marseille_metadata["cards"].find do |image|
+      image["card"].start_with?(expected_prefix)
+    end
+
+  else
+
+    suit = suit_mapping[card_data["suit"]] || card_data["suit"]
+    number = minor_numbers[card_data["number"]]
+
+    expected_filename = "#{suit}#{format('%02d', number)}.png"
+
+    image_data = marseille_files_by_name[expected_filename]
+
+  end
+
+  raise "Imagem Marseille nao encontrada para #{card_data["name"]}" unless image_data
+
+  card = Card.find_or_create_by!(
+    card: card_data["name"],
+    deck: marseille_deck
+  ) do |new_card|
+
+    new_card.card_number = card_data["number"]
+    new_card.suit = card_data["suit"]
+    new_card.meaning = card_data["upright"]["meaning"]
+    new_card.down_meaning = card_data["reversed"]["meaning"]
+
+  end
+
+  unless card.image.attached?
+
+    image_url =
+      "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/marseille/full/#{image_data["card"]}"
+
+    card.image.attach(
+      io: URI.open(image_url),
+      filename: image_data["card"],
+      content_type: "image/png",
+      identify: false
+    )
+  end
+
+  puts "Criada: #{card.card}"
+end
+
+puts "Tarot de Marseille finalizado: #{marseille_deck.cards.count} cartas."
