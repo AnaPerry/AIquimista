@@ -1,9 +1,11 @@
 <div class="sidebar-content">
 
    <div class="sidebar-logo">
-    <%= image_tag "AIquimista_logo.jpeg",
-      class: "img-fluid",
-      alt: "AIquimista" %>
+    <%= link_to root_path do %>
+      <%= image_tag "AIquimista_logo.jpeg",
+        class: "img-fluid",
+        alt: "AIquimista" %>
+    <% end %>
    </div>
 
   <nav class="nav flex-column gap-2">
@@ -18,6 +20,10 @@
           new_user_session_path,
           class: "nav-link sidebar-link" %>
     <% end %>
+
+    <%= link_to "Início",
+        root_path,
+        class: "nav-link sidebar-link" %>
 
     <%= link_to "Leituras",
         readings_path,
