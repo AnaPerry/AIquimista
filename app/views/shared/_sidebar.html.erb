@@ -1,4 +1,3 @@
-
 <div class="sidebar-content">
 
    <div class="sidebar-logo">
@@ -9,9 +8,16 @@
 
   <nav class="nav flex-column gap-2">
 
-    <%= link_to "Login",
-        new_user_session_path,
-        class: "nav-link sidebar-link" %>
+    <% if user_signed_in? %>
+      <%= link_to "Sair",
+          destroy_user_session_path,
+          data: { turbo_method: :delete },
+          class: "nav-link sidebar-link" %>
+    <% else %>
+      <%= link_to "Login",
+          new_user_session_path,
+          class: "nav-link sidebar-link" %>
+    <% end %>
 
     <%= link_to "Leituras",
         readings_path,
