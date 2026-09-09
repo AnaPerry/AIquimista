@@ -31,6 +31,18 @@
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
+.daily-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.daily-reading {
+  width: 520px;
+}
+
+
 //Tarot card
 .tarot-frame {
   width:  100%;
