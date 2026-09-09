@@ -30,14 +30,17 @@
     </header>
 
     <div class="container-fluid p-0">
-     <div class="row g-0">
+     <div class="row g-0" data-controller="toggle">
       <!-- SIDEBAR -->
-      <nav class="col-12 col-md-2 sidebar-layout">
+      <nav class="col-12 col-md-2 sidebar-layout" data-toggle-target="hideable">
         <%= render "shared/sidebar" %>
       </nav>
 
         <!-- CONTEUDO DAS PAGINAS  -->
-        <main id="main-content" class="col-12 col-md-10">
+        <main id="main-content" class="col-12 col-md-10" data-toggle-target="content">
+          <button class="btn sidebar-toggle-btn" data-action="click->toggle#call" aria-label="Mostrar ou esconder menu">
+            <i class="fa-regular fa-eye" data-toggle-target="icon"></i>
+          </button>
           <%= yield %>
         </main>
       </div>
