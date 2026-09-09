@@ -4,6 +4,7 @@ class ReadingsController < ApplicationController
     @message = Message.new
     @messages = @reading.messages
     @cards = @reading.cards
+    @cards = @reading.cards.includes(image_attachment: :blob)
   end
 
   def new
