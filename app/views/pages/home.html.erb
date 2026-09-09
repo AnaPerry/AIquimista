@@ -36,7 +36,11 @@
                   <div class="col-12 col-md-4 text-center">
                     <div class="tarot-frame mx-auto">
                       <div class="tarot-card-placeholder">
-                        IMAGEM DA CARTA
+                        <% if @daily_card.image.attached? %>
+                           <%= image_tag @daily_card.image,
+                               class: "daily-card-image",
+                               alt: @daily_card.card %>
+                        <% end %>
                       </div>
                     </div>
                   </div>
@@ -49,19 +53,13 @@
                     <span></span>
                   </div>
                     <h2 class="tarot-card-title">
-                      O Tolo
+                      <%= @daily_card.card %>
                     </h2>
                     <p class="card-keywords">
-                      Novos começos • Liberdade • Espontaneidade
+                      TBD
                     </p>
-                    <p>
-                      Hoje é um convite para confiar no desconhecido e abraçar o novo.
-                    </p>
-                    <p>
-                      Permita-se dar um passo à frente com leveza, sem medo de errar.
-                    </p>
-                    <p>
-                      A jornada é tão importante quanto o destino.
+                    <p class="daily-reading">
+                      <%= @daily_card.meaning %>
                     </p>
 
                     <div class="reading-divider">
@@ -76,4 +74,3 @@
               </div>
             </div>
           </section>
-
