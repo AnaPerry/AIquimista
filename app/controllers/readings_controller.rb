@@ -3,6 +3,7 @@ class ReadingsController < ApplicationController
   def show
     @message = Message.new
     @messages = @reading.messages
+    @cards = @reading.cards
   end
 
   def new
@@ -41,9 +42,9 @@ class ReadingsController < ApplicationController
   end
 
   def sortear_cartas
-    @cartas = Card.order("RANDOM()").limit(@reading.style.to_i)
-    @cartas.each do |carta|
-      ReadingCard.create!(reading: @reading, card: carta)
+    @cards = Card.order("RANDOM()").limit(@reading.style.to_i)
+    @cards.each do |card|
+      ReadingCard.create!(reading: @reading, card: card)
     end
   end
 end

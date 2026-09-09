@@ -1,17 +1,51 @@
-<div class="container-fluid p-0">
-  <div class="row g-0">
+<div class="container-fluid p-0 bg-light" style="min-height: 100vh;">
+  <div class="row g-0 justify-content-center pt-5">
     <div class="col-10 reading-form-section">
       <div class="card reading-form-card border-0 shadow-sm">
         <div class="card-body p-5">
-          <div class="daily-card-label">
+
+          <div class="daily-card-label justify-content-center mb-3">
             <span></span>
-            <p class="mb-0">Visualização da leitura</p>
+            <p class="mb-0 text-muted text-uppercase small">Visualização da leitura</p>
             <span></span>
           </div>
 
-          <h1 class="tarot-card-title">Consulte as cartas</h1>
+          <div class="row">
+            <!-- Mesa de Tarot -->
+            <div class="col-md-8 d-flex justify-content-center">
+              <%= render "cards_table", cards: @cards, style: @reading.style %>
+            </div>
+
+            <!-- O Chat da IA -->
+            <div class="col-md-4 d-flex flex-column">
+              <div class="ia-chat flex-grow-1 border rounded p-3 mb-3 bg-light" style="height: 450px; overflow-y: auto;">
+                <div class="mensagem-ia bg-white p-2 rounded mb-3 border shadow-sm">
+                  <p class="mb-0">Venha ouvir umas verdades do oráculo!</p>
+                </div>
+              </div>
+            </div>
+            <div class="user-chat mt-auto">
+              <input type="text" class="form-control form-control-lg" placeholder="Digite sua pergunta..." />
+            </div>
+          </div>
 
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal com o significado da carta -->
+<div class="modal fade" id="cartaModal" tabindex="-1" aria-labelledby="cartaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartaModalLabel">Carta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="cartaModalImg" src="" alt="" class="img-fluid rounded mb-3" style="max-height: 400px;">
+        <p id="cartaModalMeaning" class="text-start mb-0"></p>
       </div>
     </div>
   </div>

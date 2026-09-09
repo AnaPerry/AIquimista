@@ -1,0 +1,27 @@
+<%
+  layout_class = { 9 => "mesa-cruz-celta", 6 => "mesa-6-cartas", 3 => "mesa-3-cartas" }[style]
+  limit        = style == 9 ? cards.size : style
+%>
+
+<% if layout_class %>
+  <div class="<%= layout_class %>">
+    <% cards.first(limit).each_with_index do |card, index| %>
+      <% position_class = style == 9 ? "pos-#{index + 1}" : "pos-#{style}-#{index + 1}" %>
+
+      <div class="carta <%= position_class %>"
+           data-bs-toggle="modal"
+           data-bs-target="#cartaModal"
+           data-card-name="<%= card.card %>"
+           data-card-image="<%= card.image_path %>"
+           data-card-meaning="<%= card.meaning %>"
+           role="button"
+           tabindex="0">
+        <% if card.image_path.present? %>
+          <%= image_tag card.image_path, alt: card.card, class: "carta-face-img", loading: "lazy" %>
+        <% else %>
+          <div class="carta-verso" aria-hidden="true"></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
