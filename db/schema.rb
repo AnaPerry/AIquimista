@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_06_224842) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_10_215432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -49,6 +49,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_06_224842) do
     t.string "deck"
     t.integer "deck_id"
     t.text "down_meaning"
+    t.string "keywords", default: [], array: true
     t.text "meaning"
     t.string "suit"
     t.datetime "updated_at", null: false

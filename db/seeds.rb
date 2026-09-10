@@ -175,7 +175,8 @@ cards_data.each do |card_data|
       minor_numbers[card_data["number"]],
     suit: card_data["suit"],
     meaning: card_data["upright"]["meaning"],
-    down_meaning: card_data["reversed"]["meaning"]
+    down_meaning: card_data["reversed"]["meaning"],
+    keywords: card_data["keywords"]
   )
 
 card.save!
@@ -238,7 +239,8 @@ cards_data.each do |card_data|
       minor_numbers[card_data["number"]],
     suit: card_data["suit"],
     meaning: card_data["upright"]["meaning"],
-    down_meaning: card_data["reversed"]["meaning"]
+    down_meaning: card_data["reversed"]["meaning"],
+    keywords: card_data["keywords"]
   )
 
 card.save!
@@ -299,7 +301,8 @@ cards_data.each_with_index do |card_data, index|
       minor_numbers[card_data["number"]],
     suit: card_data["suit"],
     meaning: card_data["upright"]["meaning"],
-    down_meaning: card_data["reversed"]["meaning"]
+    down_meaning: card_data["reversed"]["meaning"],
+    keywords: card_data["keywords"]
   )
 
 card.save!
