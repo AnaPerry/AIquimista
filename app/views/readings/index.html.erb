@@ -1,2 +1,41 @@
-<h1>Readings#index</h1>
-<p>Find me in app/views/readings/index.html.erb</p>
+<div class="container-fluid p-0 bg-light" style="min-height: 100vh;">
+  <div class="row g-0 justify-content-center pt-5">
+    <div class="col-10 reading-form-section">
+      <div class="card reading-form-card border-0 shadow-sm">
+        <div class="card-body p-5">
+
+          <div class="daily-card-label justify-content-center mb-3">
+            <span></span>
+            <p class="mb-0">TODAS AS SUAS LEITURAS</p>
+            <span></span>
+          </div>
+          <div>
+            <ul class="list-group">
+              <% @readings.each do |reading| %>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-10">
+                      <strong>Date of the reading: </strong><%= reading.created_at.strftime("%d/%m/%Y %H:%M") %>
+                      <br><strong>Reading style: </strong><%= "#{reading.style} cards"%>
+                      <br><strong>Deck of the reading: </strong><%=reading.deck.name%>
+                      <br><strong>Reading subject: </strong><%= reading.subject%>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center">
+                      <%= link_to reading_path(reading), class: "btn btn-dark" do %>
+                        <i class="fa-solid fa-eye text-white"></i>
+                      <% end %>
+                    </div>
+                    <div class="col-1 d-flex justify-content-center align-items-center">
+                      <%= link_to reading_path(reading), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" do %>
+                        <i class="fa-solid fa-trash text-white"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
