@@ -13,7 +13,7 @@
              data-bs-toggle="modal"
              data-bs-target="#cartaModal"
              data-card-name="<%= card.card %>"
-             data-card-image="<%= url_for(card.image) %>"
+             data-card-image="<%= cl_image_path card.image.key %>"
              data-card-meaning="<%= card.meaning %>"
              role="button"
              tabindex="0"
