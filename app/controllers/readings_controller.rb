@@ -15,7 +15,6 @@ class ReadingsController < ApplicationController
   def create
     @reading = Reading.new(reading_params)
     @reading.user = current_user
-
     if @reading.save
       draw_cards
       redirect_to reading_path(@reading)
