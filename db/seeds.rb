@@ -17,6 +17,22 @@ cards_data = JSON.parse(cards_response)["cards"]
 
 puts "Cartas encontradas na fonte de dados: #{cards_data.count}"
 
+# DADOS EM PORTUGUES
+# Carrega as traducoes PT-BR previamente geradas e validadas.
+
+translations_path = Rails.root.join(
+  "db",
+  "data",
+  "tarot_cards_pt_br.json"
+)
+
+translations = JSON.parse(File.read(translations_path))
+
+# Cria um indice por ID para localizar rapidamente
+# a traducao correspondente a cada carta original.
+translations_by_id = translations.index_by { |card| card["id"] }
+
+puts "Traducoes PT-BR encontradas: #{translations.count}"
 
 # FONTE 2 - mixvlad/TarotCards
 # Repositorio usado como fonte das imagens dos tres decks:
@@ -142,6 +158,7 @@ puts sola_busca_deck.name
 puts "Criando cartas do Rider-Waite-Smith..."
 
 cards_data.each do |card_data|
+  translated = translations_by_id.fetch(card_data["id"])
 
   if card_data["arcana"] == "Major"
     number = card_data["number"].to_i
@@ -164,20 +181,21 @@ cards_data.each do |card_data|
 
   raise "Imagem Rider-Waite nao encontrada para #{card_data["name"]}" unless image_file
 
-  card = Card.find_or_initialize_by(
-    card: card_data["name"],
-    deck: rider_waite_deck
-  )
+  card = Card.find_by(
+  deck: rider_waite_deck,
+  card: [card_data["name"], translated["name"]]
+) || Card.new(deck: rider_waite_deck)
 
-  card.assign_attributes(
-    card_number: card_data["arcana"] == "Major" ?
-      card_data["number"].to_i :
-      minor_numbers[card_data["number"]],
-    suit: card_data["suit"],
-    meaning: card_data["upright"]["meaning"],
-    down_meaning: card_data["reversed"]["meaning"],
-    keywords: card_data["keywords"]
-  )
+card.assign_attributes(
+  card: translated["name"],
+  card_number: card_data["arcana"] == "Major" ?
+    card_data["number"].to_i :
+    minor_numbers[card_data["number"]],
+  suit: translated["suit"],
+  meaning: translated["meaning"],
+  down_meaning: translated["down_meaning"],
+  keywords: translated["keywords"]
+)
 
 card.save!
 
@@ -205,6 +223,7 @@ marseille_files_by_name = marseille_metadata["cards"].index_by do |image|
 end
 
 cards_data.each do |card_data|
+  translated = translations_by_id.fetch(card_data["id"])
 
   if card_data["arcana"] == "Major"
 
@@ -228,20 +247,21 @@ cards_data.each do |card_data|
 
   raise "Imagem Marseille nao encontrada para #{card_data["name"]}" unless image_data
 
-  card = Card.find_or_initialize_by(
-    card: card_data["name"],
-    deck: marseille_deck
-  )
+card = Card.find_by(
+  deck: marseille_deck,
+  card: [card_data["name"], translated["name"]]
+) || Card.new(deck: marseille_deck)
 
-  card.assign_attributes(
-    card_number: card_data["arcana"] == "Major" ?
-      card_data["number"].to_i :
-      minor_numbers[card_data["number"]],
-    suit: card_data["suit"],
-    meaning: card_data["upright"]["meaning"],
-    down_meaning: card_data["reversed"]["meaning"],
-    keywords: card_data["keywords"]
-  )
+card.assign_attributes(
+  card: translated["name"],
+  card_number: card_data["arcana"] == "Major" ?
+    card_data["number"].to_i :
+    minor_numbers[card_data["number"]],
+  suit: translated["suit"],
+  meaning: translated["meaning"],
+  down_meaning: translated["down_meaning"],
+  keywords: translated["keywords"]
+)
 
 card.save!
 
@@ -276,7 +296,7 @@ sola_busca_files_by_name = sola_busca_metadata["cards"].index_by do |image|
 end
 
 cards_data.each_with_index do |card_data, index|
-
+  translated = translations_by_id.fetch(card_data["id"])
   # Usa a posicao da carta para encontrar a imagem correspondente.
   # Exemplo:
   # The Fool      -> 00.jpg
@@ -290,20 +310,21 @@ cards_data.each_with_index do |card_data, index|
 
   raise "Imagem Sola Busca nao encontrada para #{card_data["name"]}" unless image_data
 
-  card = Card.find_or_initialize_by(
-    card: card_data["name"],
-    deck: sola_busca_deck
-  )
+card = Card.find_by(
+  deck: sola_busca_deck,
+  card: [card_data["name"], translated["name"]]
+) || Card.new(deck: sola_busca_deck)
 
-  card.assign_attributes(
-    card_number: card_data["arcana"] == "Major" ?
-      card_data["number"].to_i :
-      minor_numbers[card_data["number"]],
-    suit: card_data["suit"],
-    meaning: card_data["upright"]["meaning"],
-    down_meaning: card_data["reversed"]["meaning"],
-    keywords: card_data["keywords"]
-  )
+card.assign_attributes(
+  card: translated["name"],
+  card_number: card_data["arcana"] == "Major" ?
+    card_data["number"].to_i :
+    minor_numbers[card_data["number"]],
+  suit: translated["suit"],
+  meaning: translated["meaning"],
+  down_meaning: translated["down_meaning"],
+  keywords: translated["keywords"]
+)
 
 card.save!
 
