@@ -56,7 +56,7 @@
                       <%= @daily_card.card %>
                     </h2>
                     <p class="card-keywords">
-                      TBD
+                      <%= @daily_card.keywords.map(&:capitalize).join(" • ") %>
                     </p>
                     <p class="daily-reading">
                       <%= @daily_card.meaning %>
