@@ -1,28 +1,36 @@
 <%
-  layout_class = { 9 => "mesa-cruz-celta", 6 => "mesa-6-cartas", 3 => "mesa-3-cartas" }[style]
-  limit        = style == 9 ? cards.size : style
+  layout_class = { 9 => "celtic-cross-table", 6 => "six-card-table", 3 => "three-card-table" }[style]
 %>
 
 <% if layout_class %>
-  <div class="<%= layout_class %>">
-    <% cards.first(limit).each_with_index do |card, index| %>
-      <% position_class = style == 9 ? "pos-#{index + 1}" : "pos-#{style}-#{index + 1}" %>
+  <div class="<%= layout_class %>" data-controller="card-flip">
+    <% cards.each_with_index do |card, index| %>
+      <% position_class = style == 10 ? "pos-#{index + 1}" : "pos-#{style}-#{index + 1}" %>
 
-      <div class="carta <%= position_class %>"
-           <% if card.image.attached? %>
-             data-bs-toggle="modal"
-             data-bs-target="#cartaModal"
+      <div class="card-slot <%= position_class %>">
+        <div class="card"
+             data-card-flip-target="card"
              data-card-name="<%= card.card %>"
-             data-card-image="<%= cl_image_path card.image.key %>"
+             data-card-image="<%= card.image.attached? ? url_for(card.image) : "" %>"
              data-card-meaning="<%= card.meaning %>"
+             data-action="click->card-flip#flip keydown.enter->card-flip#flip"
              role="button"
              tabindex="0"
-           <% end %>>
-        <% if card.image.attached? %>
-          <%= image_tag card.image, alt: card.card, class: "carta-face-img", loading: "lazy" %>
-        <% else %>
-          <div class="carta-verso" aria-hidden="true"></div>
-        <% end %>
+             aria-label="Flip card">
+
+          <div class="card-inner">
+            <div class="card-back" aria-hidden="true"></div>
+
+            <div class="card-front">
+              <img data-card-flip-target="image" class="card-face-img" alt="" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <div class="card-meaning-panel" data-card-flip-target="panel" hidden>
+          <strong data-card-flip-target="name"></strong>
+          <p data-card-flip-target="text"></p>
+        </div>
       </div>
     <% end %>
   </div>

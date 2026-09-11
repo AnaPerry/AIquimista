@@ -1,9 +1,9 @@
 class ReadingsController < ApplicationController
-  before_action :set_readings, only: %i[show destroy]
+  before_action :set_reading, only: %i[show destroy]
+
   def show
     @message = Message.new
     @messages = @reading.messages
-    @cards = @reading.cards
     @cards = @reading.cards.includes(image_attachment: :blob)
   end
 
@@ -15,8 +15,9 @@ class ReadingsController < ApplicationController
   def create
     @reading = Reading.new(reading_params)
     @reading.user = current_user
+
     if @reading.save
-      sortear_cartas
+      draw_cards
       redirect_to reading_path(@reading)
     else
       render :new, status: :unprocessable_entity
@@ -29,12 +30,12 @@ class ReadingsController < ApplicationController
 
   def destroy
     @reading.destroy
-    redirect_to reading_path, status: :see_other
+    redirect_to readings_path, status: :see_other
   end
 
   private
 
-  def set_readings
+  def set_reading
     @reading = Reading.find(params[:id])
   end
 
@@ -42,10 +43,11 @@ class ReadingsController < ApplicationController
     params.require(:reading).permit(:style, :subject, :deck_id)
   end
 
-  def sortear_cartas
-    @cards = Card.order("RANDOM()").limit(@reading.style.to_i)
-    @cards.each do |card|
-      ReadingCard.create!(reading: @reading, card: card)
+  def draw_cards
+    drawn_cards = @reading.deck.cards.order("RANDOM()").limit(@reading.style.to_i)
+
+    drawn_cards.each_with_index do |card, index|
+      ReadingCard.create!(reading: @reading, card: card, position: index)
     end
   end
 end
