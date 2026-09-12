@@ -1,9 +1,10 @@
 class ReadingsController < ApplicationController
   before_action :set_reading, only: %i[show destroy]
-  @three_cards_labels = ["1. Passado", "2. Presente", "3. Futuro"]
-  @six_cards_labels = ["1. Situação atual", "2. Desafio", "3. Passado", "4. Futuro", "5. Você", "6. Resultado"]
-  @celtic_cross_labels = ["Presente", "Influência iminente", "Destino", "Passado distante", "Passado recente", "Futuro", "Você", "Desenvolver da situação", "Emoções internas", "Resultado final" ]
+
   def show
+    @three_cards_labels = ["1. Passado", "2. Presente", "3. Futuro"]
+    @six_cards_labels = ["1. Situação atual", "2. Desafio", "3. Passado", "4. Futuro", "5. Você", "6. Resultado"]
+    @celtic_cross_labels = ["Presente", "Influência iminente", "Destino", "Passado distante", "Passado recente", "Futuro", "Você", "Desenvolver da situação", "Emoções internas", "Resultado final" ]
     @message = Message.new
     @messages = @reading.messages
     @cards = @reading.cards.includes(image_attachment: :blob)
