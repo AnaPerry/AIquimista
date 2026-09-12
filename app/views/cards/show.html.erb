@@ -9,9 +9,13 @@
     <div class="row align-items-start">
       <div class="col-12 col-md-4 text-center">
         <div class="tarot-frame mx-auto">
-          <div class="tarot-card-placeholder">
-            IMAGEM DA CARTA
-          </div>
+          <% if @card.image.attached? %>
+            <%= image_tag @card.image, class: "img-fluid tarot-card-image" %>
+          <% else %>
+            <div class="tarot-card-placeholder">
+              IMAGEM DA CARTA
+            </div>
+          <% end %>
         </div>
       </div>
 

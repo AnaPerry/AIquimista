@@ -72,3 +72,18 @@
   margin-top: 24px;
   margin-bottom: 8px;
 }
+
+.tarot-card-image {
+  border-radius: 10px;
+  max-height: 340px;
+}
+
+.deck-card-thumb {
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-show .col-md-8 p {
+  max-width: 640px;
+}
