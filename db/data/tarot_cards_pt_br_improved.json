@@ -1,0 +1,1091 @@
+[
+  {
+    "name": "O Louco",
+    "suit": null,
+    "keywords": [
+      "inícios",
+      "inocência",
+      "espontaneidade",
+      "espírito livre",
+      "aventura"
+    ],
+    "meaning": "O Louco simboliza novos começos e recomeços, trazendo a espontaneidade de viver o momento e a confiança no universo. Ele representa o puro potencial de iniciar uma jornada desconhecida com otimismo.",
+    "down_meaning": "Imprudência, assumir riscos sem pensar, ingenuidade, hesitar por medo, oportunidades perdidas.",
+    "id": 0
+  },
+  {
+    "name": "O Mago",
+    "suit": null,
+    "keywords": [
+      "força de vontade",
+      "habilidade",
+      "manifestação",
+      "engenhosidade",
+      "poder"
+    ],
+    "meaning": "O Mago representa a manifestação, a engenhosidade e a ação inspirada. Você tem todas as ferramentas necessárias para transformar suas ideias em realidade através da força de vontade e foco.",
+    "down_meaning": "Manipulação, potencial não aproveitado, engano, talento desperdiçado, astúcia.",
+    "id": 1
+  },
+  {
+    "name": "A Sacerdotisa",
+    "suit": null,
+    "keywords": [
+      "intuição",
+      "mistério",
+      "subconsciente",
+      "conhecimento interior",
+      "sabedoria"
+    ],
+    "meaning": "Confie na sua intuição, olhe além da superfície, o silêncio é sabedoria. A Sacerdotisa representa a ponte entre a mente consciente e inconsciente. Ouça sua voz interior.",
+    "down_meaning": "Ignorar a intuição, segredos revelados, retraimento, conhecimento superficial.",
+    "id": 2
+  },
+  {
+    "name": "A Imperatriz",
+    "suit": null,
+    "keywords": [
+      "feminilidade",
+      "abundância",
+      "natureza",
+      "cuidado",
+      "fertilidade"
+    ],
+    "meaning": "A Imperatriz representa a abundância, a fertilidade, a beleza, o cuidado e a conexão com a natureza. Ela personifica o Divino Feminino — abundância criativa, crescimento e energia nutritiva.",
+    "down_meaning": "Bloqueio criativo, dependência, negligência do autocuidado, vazio.",
+    "id": 3
+  },
+  {
+    "name": "O Imperador",
+    "suit": null,
+    "keywords": [
+      "autoridade",
+      "estrutura",
+      "estabilidade",
+      "poder",
+      "proteção"
+    ],
+    "meaning": "O Imperador simboliza autoridade, estrutura, disciplina, estabilidade e liderança. Ele representa a ordem, as regras e o princípio masculino de construir bases sólidas por meio da disciplina.",
+    "down_meaning": "Rigidez, controle excessivo, tirania, falta de disciplina, lutas pelo poder.",
+    "id": 4
+  },
+  {
+    "name": "O Hierofante",
+    "suit": null,
+    "keywords": [
+      "tradição",
+      "orientação espiritual",
+      "educação",
+      "conformidade",
+      "crença"
+    ],
+    "meaning": "O Hierofante simboliza a sabedoria espiritual, a tradição, a conformidade e a educação, refletindo a orientação por instituições. Ele representa sistemas de crença estabelecidos e o conhecimento tradicional.",
+    "down_meaning": "Rebeldia, abordagens não ortodoxas, questionar autoridade, não conformidade.",
+    "id": 5
+  },
+  {
+    "name": "Os Amantes",
+    "suit": null,
+    "keywords": [
+      "amor",
+      "harmonia",
+      "relacionamentos",
+      "escolhas",
+      "alinhamento"
+    ],
+    "meaning": "A carta dos Amantes traz a energia do amor, da harmonia e de conexões significativas, indicando um momento de escolhas alinhadas com seus valores. Ela representa uma encruzilhada em que o coração e os valores guiam a decisão a ser tomada.",
+    "down_meaning": "Desconexão, desequilíbrio, desalinhamento de valores, relacionamentos quebrados.",
+    "id": 6
+  },
+  {
+    "name": "O Carro",
+    "suit": null,
+    "keywords": [
+      "força de vontade",
+      "determinação",
+      "vitória",
+      "controle",
+      "impulso"
+    ],
+    "meaning": "O Carro simboliza força de vontade, determinação e vitória através de esforço focado, superação de oposição. Essa carta representa o triunfo alcançado através da disciplina e do controle.",
+    "down_meaning": "Falta de direção, agressividade, obstáculos, perda de controle, falha na força de vontade.",
+    "id": 7
+  },
+  {
+    "name": "A Força",
+    "suit": null,
+    "keywords": [
+      "coragem",
+      "força interior",
+      "compaixão",
+      "paciência",
+      "poder suave"
+    ],
+    "meaning": "A carta A Força representa a coragem, a força interior, a compaixão, a paciência e o controle gentil. Ela nos lembra que o verdadeiro poder vem da gentileza e da fortaleza interior, não da dominação.",
+    "down_meaning": "Dúvida de si, insegurança, fraqueza, falta de coragem, sentir-se sobrecarregado.",
+    "id": 8
+  },
+  {
+    "name": "O Eremita",
+    "suit": null,
+    "keywords": [
+      "introspecção",
+      "solidão",
+      "sabedoria",
+      "reflexão",
+      "orientação interior"
+    ],
+    "meaning": "O Eremita representa a solidão, a introspecção, a orientação interior e a busca da alma. Às vezes, a escolha mais sábia é se retirar e buscar respostas dentro de si.",
+    "down_meaning": "Isolamento, solidão, afastamento dos outros, recusar ajuda.",
+    "id": 9
+  },
+  {
+    "name": "A Roda da Fortuna",
+    "suit": null,
+    "keywords": [
+      "mudança",
+      "ciclos",
+      "destino",
+      "ponto de virada",
+      "sorte"
+    ],
+    "meaning": "A Roda da Fortuna representa a mudança, os ciclos da vida, o destino e o karma, indicando um ponto de virada. A vida se move em ciclos — o que vai, volta. Abrace a mudança como uma força natural.",
+    "down_meaning": "Má sorte, resistência à mudança, ciclos quebrados, falta de controle.",
+    "id": 10
+  },
+  {
+    "name": "A Justiça",
+    "suit": null,
+    "keywords": [
+      "justiça",
+      "verdade",
+      "lei",
+      "responsabilidade",
+      "equilíbrio"
+    ],
+    "meaning": "A carta da Justiça representa justiça, equidade e verdade, envolvendo causa e efeito e assuntos legais. A balança deve estar equilibrada, e a honestidade e a responsabilidade prevalecerão.",
+    "down_meaning": "Injustiça, desonestidade, falta de responsabilidade, problemas legais.",
+    "id": 11
+  },
+  {
+    "name": "O Enforcado",
+    "suit": null,
+    "keywords": [
+      "rendição",
+      "pausa",
+      "nova perspectiva",
+      "sacrifício",
+      "desapego"
+    ],
+    "meaning": "O Enforcado traz uma mensagem de pausa, rendição, nova perspectiva, desapego e sacrifício. Às vezes, a melhor ação é a inação. Veja o mundo de um ângulo diferente.",
+    "down_meaning": "Procrastinação, resistência ao sacrifício, atraso, estagnação, vitimização.",
+    "id": 12
+  },
+  {
+    "name": "A Morte",
+    "suit": null,
+    "keywords": [
+      "transformação",
+      "fins",
+      "renascimento",
+      "mudança",
+      "liberação"
+    ],
+    "meaning": "A Morte simboliza transformação, fins que levam a novos começos, liberação do velho e metamorfose. Essa carta raramente indica morte física, representando uma profunda mudança interior.",
+    "down_meaning": "Resistência à mudança, estagnação, padrões repetitivos, recusa em deixar ir.",
+    "id": 13
+  },
+  {
+    "name": "A Temperança",
+    "suit": null,
+    "keywords": [
+      "equilíbrio",
+      "moderação",
+      "paciência",
+      "harmonia",
+      "cura"
+    ],
+    "meaning": "A Temperança traz a mensagem de equilíbrio, moderação, paciência e encontrar o meio-termo. Ela fala sobre cura e o fluxo da vida, que é feito de integração e harmonia — unir forças opostas.",
+    "down_meaning": "Desequilíbrio, excesso, extremos, falta de harmonia, impaciência.",
+    "id": 14
+  },
+  {
+    "name": "O Diabo",
+    "suit": null,
+    "keywords": [
+      "escravidão",
+      "vício",
+      "materialismo",
+      "lado sombrio",
+      "preso"
+    ],
+    "meaning": "Esta carta fala sobre escravidão, vício e materialismo, além de brincadeira com os lados sombrios da nossa natureza. As correntes que nos prendem são autoimpostas; por isso, é importante reconhecer o que está te mantendo cativo para que você possa recuperar sua liberdade.",
+    "down_meaning": "Libertação, quebrar correntes, recuperar poder, superar vícios.",
+    "id": 15
+  },
+  {
+    "name": "A Torre",
+    "suit": null,
+    "keywords": [
+      "mudança súbita",
+      "tumulto",
+      "revelação",
+      "crise",
+      "despertar"
+    ],
+    "meaning": "A Torre representa um tumulto súbito e uma revelação que provocam uma ruptura e um despertar. Ela destrói estruturas falsas para abrir caminho à verdade. Esse processo é doloroso, mas necessário.",
+    "down_meaning": "Evitar desastre, resistência à mudança, adiar o inevitável, crise pessoal.",
+    "id": 16
+  },
+  {
+    "name": "A Estrela",
+    "suit": null,
+    "keywords": [
+      "esperança",
+      "inspiração",
+      "serenidade",
+      "propósito",
+      "renovação"
+    ],
+    "meaning": "A Estrela traz esperança, inspiração, cura, renovação, serenidade e propósito. Após a tempestade vem a paz. Confie no universo e no seu caminho.",
+    "down_meaning": "Desespero, falta de fé, desânimo, desesperança, sem inspiração.",
+    "id": 17
+  },
+  {
+    "name": "A Lua",
+    "suit": null,
+    "keywords": [
+      "ilusão",
+      "medo",
+      "incerteza",
+      "subconsciente",
+      "intuição"
+    ],
+    "meaning": "A Lua traz uma mensagem de ilusão, medo, ansiedade, incerteza e influência do subconsciente. As coisas não são como parecem, por isso é importante confiar na sua intuição, mas cuidado com enganos e ilusões.",
+    "down_meaning": "Libertar-se do medo, clareza surgindo, compreensão, superação da ansiedade.",
+    "id": 18
+  },
+  {
+    "name": "O Sol",
+    "suit": null,
+    "keywords": [
+      "alegria",
+      "sucesso",
+      "vitalidade",
+      "celebração",
+      "confiança"
+    ],
+    "meaning": "O Sol é uma das cartas mais positivas, trazendo alegria, sucesso, vitalidade, celebração, confiança e conquista. Felicidade, sucesso e realização aguardam.",
+    "down_meaning": "Reversão temporária, falta de alegria, otimismo ofuscado, negatividade.",
+    "id": 19
+  },
+  {
+    "name": "O Julgamento",
+    "suit": null,
+    "keywords": [
+      "julgamento",
+      "renascimento",
+      "chamado interior",
+      "responsabilidade",
+      "absolvição"
+    ],
+    "meaning": "A carta do Julgamento representa um momento de renascimento, julgamento e avaliação, em que é fundamental ser honesto consigo mesmo e responder ao seu chamado interior. Ela indica um acerto de contas necessário, trazendo também a ideia de absolvição.",
+    "down_meaning": "Dúvida de si, autojulgamento severo, recusa em aprender com o passado, ignorar o chamado.",
+    "id": 20
+  },
+  {
+    "name": "O Mundo",
+    "suit": null,
+    "keywords": [
+      "conclusão",
+      "realização",
+      "satisfação",
+      "integridade",
+      "viagem"
+    ],
+    "meaning": "A carta O Mundo representa conclusão, realização, satisfação, integridade e integração. Um ciclo importante termina com sucesso. Você alcançou seu objetivo — celebre e prepare-se para a próxima jornada.",
+    "down_meaning": "Incompletude, atrasos, estagnação, atalhos, falta de encerramento.",
+    "id": 21
+  },
+  {
+    "name": "Ás de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "novo começo",
+      "inspiração",
+      "faísca criativa",
+      "oportunidade",
+      "potencial"
+    ],
+    "meaning": "O Ás de Paus representa uma nova faísca criativa e inspiração, indicando um recomeço e uma oportunidade empolgante. Essa carta traz o fogo da paixão e a energia necessária para iniciar algo novo.",
+    "down_meaning": "Atrasos no começo, bloqueios criativos, falta de motivação, oportunidade perdida.",
+    "id": 22
+  },
+  {
+    "name": "Dois de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "planejamento futuro",
+      "progresso",
+      "decisões",
+      "descoberta",
+      "ambição"
+    ],
+    "meaning": "O Dois de Paus indica planejamento para o futuro, tomar decisões, descoberta e sair da zona de conforto. Seu mundo está se expandindo e você deve escolher seu caminho.",
+    "down_meaning": "Medo da mudança, planejamento ruim, falta de visão, indecisão.",
+    "id": 23
+  },
+  {
+    "name": "Três de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "expansão",
+      "progresso",
+      "previsão",
+      "exploração",
+      "crescimento"
+    ],
+    "meaning": "O Três de Paus representa expansão, progresso, planejamento antecipado e exploração. Seus planos estão ganhando impulso — prepare-se para crescimento e novos horizontes.",
+    "down_meaning": "Obstáculos ao progresso, atrasos, frustração, falta de direção.",
+    "id": 24
+  },
+  {
+    "name": "Quatro de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "celebração",
+      "retorno",
+      "harmonia",
+      "comunidade",
+      "estabilidade"
+    ],
+    "meaning": "O Quatro de Paus representa celebração, retorno, harmonia, estabilidade e alegria. Indica um marco alcançado e o momento de reunir-se com entes queridos para celebrar suas conquistas.",
+    "down_meaning": "Falta de harmonia, celebrações canceladas, sentir-se indesejado, instabilidade.",
+    "id": 25
+  },
+  {
+    "name": "Cinco de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "competição",
+      "conflito",
+      "tensão",
+      "rivalidade",
+      "desacordo"
+    ],
+    "meaning": "O Cinco de Paus representa competição, conflito, rivalidade, tensão e desacordos. A competição saudável pode impulsionar o crescimento, mas é importante tomar cuidado para não se envolver em batalhas desnecessárias.",
+    "down_meaning": "Evitar conflito, cooperação, encontrar acordo, pacificação.",
+    "id": 26
+  },
+  {
+    "name": "Seis de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "vitória",
+      "reconhecimento",
+      "realização",
+      "sucesso público",
+      "elogio"
+    ],
+    "meaning": "O Seis de Paus representa vitória, reconhecimento, elogio, sucesso público e confiança. Seu trabalho duro compensa e outros reconhecem suas conquistas.",
+    "down_meaning": "Falta de reconhecimento, ego, queda em desgraça, fracasso, arrogância.",
+    "id": 27
+  },
+  {
+    "name": "Sete de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "defesa",
+      "manter posição",
+      "perseverança",
+      "desafio",
+      "proteção"
+    ],
+    "meaning": "Hoje é um dia para defender sua posição, mantendo-se firme com perseverança. Você enfrenta oposição e desafios, mas tem a força e a convicção necessárias para manter sua posição.",
+    "down_meaning": "Desistir, sobrecarregado, perder terreno, sentir-se na defensiva.",
+    "id": 28
+  },
+  {
+    "name": "Oito de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "velocidade",
+      "movimento",
+      "progresso",
+      "ação",
+      "mudança rápida"
+    ],
+    "meaning": "O Oito de Paus representa velocidade, progresso rápido, ação, impulso e mudança rápida. As coisas estão se movendo rápido — mantenha o foco e aproveite o impulso.",
+    "down_meaning": "Atrasos, desaceleração, frustração, falta de impulso, estagnação.",
+    "id": 29
+  },
+  {
+    "name": "Nove de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "resiliência",
+      "persistência",
+      "limites",
+      "última resistência",
+      "fadiga"
+    ],
+    "meaning": "O Nove de Paus traz a mensagem de resiliência, persistência e proteção dos limites, indicando a importância da última resistência. Você está quase lá — não desista mesmo que esteja cansado. Faça um último esforço.",
+    "down_meaning": "Exaustão, desistência, esgotamento, sentir-se na defensiva, paranoia.",
+    "id": 30
+  },
+  {
+    "name": "Dez de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "fardo",
+      "responsabilidade",
+      "trabalho árduo",
+      "sobrecarga",
+      "estresse"
+    ],
+    "meaning": "O Dez de Paus indica um momento de grande responsabilidade e trabalho árduo, em que o fardo e a sobrecarga estão presentes. Você está carregando demais — é hora de delegar ou pedir ajuda.",
+    "down_meaning": "Liberação, delegar, aliviar a carga, largar fardos.",
+    "id": 31
+  },
+  {
+    "name": "Pajem de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "entusiasmo",
+      "exploração",
+      "novas ideias",
+      "curiosidade",
+      "espírito livre"
+    ],
+    "meaning": "O Pajem de Paus traz entusiasmo, vontade de explorar e descobrir novas ideias, despertando uma faísca criativa e uma energia juvenil. Essa carta representa uma nova perspectiva e paixão por algo novo.",
+    "down_meaning": "Falta de direção, retrocessos, imaturidade, insegurança.",
+    "id": 32
+  },
+  {
+    "name": "Cavaleiro de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "aventura",
+      "impulsividade",
+      "energia",
+      "paixão",
+      "ação ousada"
+    ],
+    "meaning": "O Cavaleiro de Paus representa aventura, ação, impulsividade e paixão, indicando movimentos ousados. Ele mostra que você está avançando em direção aos seus objetivos com energia ardente, mas é importante pensar antes de agir.",
+    "down_meaning": "Imprudência, impulsividade, esgotamento, energia dispersa.",
+    "id": 33
+  },
+  {
+    "name": "Rainha de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "confiança",
+      "determinação",
+      "calor",
+      "carisma",
+      "ousadia"
+    ],
+    "meaning": "A Rainha de Paus representa confiança, carisma, calor, ousadia e liderança criativa. Ela convida você a assumir seu poder com graça e a inspirar os outros através do seu espírito apaixonado.",
+    "down_meaning": "Inveja, insegurança, egoísmo, exigente, temperamental.",
+    "id": 34
+  },
+  {
+    "name": "Rei de Paus",
+    "suit": "Paus",
+    "keywords": [
+      "liderança",
+      "visão",
+      "empreendedorismo",
+      "honra",
+      "decisão ousada"
+    ],
+    "meaning": "O Rei de Paus é um líder nato, visionário e empreendedor que conduz com confiança, visão e integridade, tomando decisões ousadas.",
+    "down_meaning": "Arrogância, crueldade, expectativas irreais, tirania.",
+    "id": 35
+  },
+  {
+    "name": "Ás de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "novo amor",
+      "novo começo emocional",
+      "intuição",
+      "compaixão",
+      "sentimentos transbordando"
+    ],
+    "meaning": "O Ás de Copas representa um novo amor, despertar emocional, compaixão e sentimentos que transbordam. Essa carta abre o coração para receber e dar amor livremente.",
+    "down_meaning": "Vazio emocional, sentimentos bloqueados, emoções reprimidas, bloqueio criativo.",
+    "id": 36
+  },
+  {
+    "name": "Dois de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "parceria",
+      "conexão",
+      "atração mútua",
+      "unidade",
+      "amor"
+    ],
+    "meaning": "O Dois de Copas representa uma parceria baseada em atração mútua, conexão e unidade, simbolizando um amor equilibrado. Um belo vínculo se forma entre duas pessoas que se veem claramente.",
+    "down_meaning": "Desequilíbrio, conexão rompida, separação, desconfiança, término.",
+    "id": 37
+  },
+  {
+    "name": "Três de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "celebração",
+      "amizade",
+      "comunidade",
+      "alegria",
+      "socializar"
+    ],
+    "meaning": "O Três de Copas representa celebração, amizade, comunidade, alegria e encontros sociais. É um momento para desfrutar bons momentos com amigos e entes queridos, valorizando e celebrando os laços que te nutrem.",
+    "down_meaning": "Excesso, fofoca, exclusão, drama social, solidão.",
+    "id": 38
+  },
+  {
+    "name": "Quatro de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "apatia",
+      "contemplação",
+      "descontentamento",
+      "meditação",
+      "tédio"
+    ],
+    "meaning": "O Quatro de Copas indica apatia, contemplação, descontentamento e tédio. O que está sendo oferecido não satisfaz. Olhe para dentro para entender o que você realmente precisa.",
+    "down_meaning": "Nova perspectiva, aceitação, renovação, aproveitar oportunidade.",
+    "id": 39
+  },
+  {
+    "name": "Cinco de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "perda",
+      "luto",
+      "arrependimento",
+      "decepção",
+      "lamentação"
+    ],
+    "meaning": "O Cinco de Copas revela sentimentos de perda, luto, arrependimento e decepção, com o foco no que foi perdido. É normal sofrer, mas não perca o que resta — duas copas ainda estão de pé.",
+    "down_meaning": "Aceitação, seguir em frente, encontrar paz, perdão.",
+    "id": 40
+  },
+  {
+    "name": "Seis de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "nostalgia",
+      "infância",
+      "inocência",
+      "memórias felizes",
+      "reencontro"
+    ],
+    "meaning": "O Seis de Copas traz à tona a nostalgia, as memórias de infância e a inocência, além dos reencontros felizes que aquecem o coração. É um convite para olhar para o passado com carinho, mas lembre-se de viver o presente.",
+    "down_meaning": "Viver no passado, preso em memórias, incapaz de seguir em frente.",
+    "id": 41
+  },
+  {
+    "name": "Sete de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "escolhas",
+      "ilusões",
+      "fantasia",
+      "opções",
+      "confusão"
+    ],
+    "meaning": "O Sete de Copas indica que você está diante de muitas escolhas e opções, mas nem todas são reais. Este momento pode trazer confusão entre sonhos e ilusões, por isso é fundamental separar sonhos de delírios. Muitas possibilidades estão presentes, mas é importante distinguir o pensamento fantasioso da realidade.",
+    "down_meaning": "Clareza, priorização, tomar decisões, direção focada.",
+    "id": 42
+  },
+  {
+    "name": "Oito de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "afastar-se",
+      "desilusão",
+      "busca pela verdade",
+      "transição"
+    ],
+    "meaning": "O Oito de Copas indica o momento de afastar-se daquilo que já não te serve, mesmo que haja desilusão envolvida. Avançar corajosamente em busca de um significado mais profundo.",
+    "down_meaning": "Medo de partir, vaguear sem rumo, evasão, estagnação.",
+    "id": 43
+  },
+  {
+    "name": "Nove de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "desejo realizado",
+      "contentamento",
+      "satisfação",
+      "gratidão",
+      "sonhos realizados"
+    ],
+    "meaning": "O Nove de Copas representa a realização dos seus desejos, trazendo contentamento, satisfação e gratidão. É a carta dos desejos — seus sonhos estão se manifestando. Aproveite este momento de abundância.",
+    "down_meaning": "Falta de realização, insatisfação, ingratidão, desejos vazios.",
+    "id": 44
+  },
+  {
+    "name": "Dez de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "amor divino",
+      "realização emocional",
+      "família feliz",
+      "harmonia",
+      "alegria"
+    ],
+    "meaning": "O Dez de Copas representa o amor divino, a realização emocional, a família feliz, a paz interior e a alegria completa. É a carta máxima da felicidade emocional e das conexões amorosas.",
+    "down_meaning": "Família desfeita, desarmonia, sonhos não realizados, felicidade superficial.",
+    "id": 45
+  },
+  {
+    "name": "Pajem de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "intuição",
+      "criatividade",
+      "novos sentimentos",
+      "sonhador",
+      "imaginativo"
+    ],
+    "meaning": "O Pajem de Copas traz mensagens intuitivas, inspiração criativa, novos sentimentos e uma energia sonhadora. Seu eu interior está falando — ouça com o coração aberto.",
+    "down_meaning": "Bloqueio criativo, imaturidade emocional, insegurança, sonolência.",
+    "id": 46
+  },
+  {
+    "name": "Cavaleiro de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "romance",
+      "charme",
+      "proposta",
+      "seguir sonhos",
+      "convite"
+    ],
+    "meaning": "O Cavaleiro de Copas traz romance, charme e uma proposta, indicando que é hora de seguir seu coração. Um convite sincero ou uma busca criativa chega — siga sua paixão.",
+    "down_meaning": "Inveja, mau humor, expectativas irreais, decepção.",
+    "id": 47
+  },
+  {
+    "name": "Rainha de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "compaixão",
+      "profundidade emocional",
+      "intuição",
+      "cuidado",
+      "empatia"
+    ],
+    "meaning": "A Rainha de Copas representa compaixão, profundidade emocional, intuição, cuidado e percepção psíquica. Ela lidera com seu coração e profunda inteligência emocional.",
+    "down_meaning": "Manipulação emocional, codependência, vitimização, sobrecarregada.",
+    "id": 48
+  },
+  {
+    "name": "Rei de Copas",
+    "suit": "Copas",
+    "keywords": [
+      "maturidade emocional",
+      "calma",
+      "sabedoria",
+      "líder compassivo",
+      "equilíbrio"
+    ],
+    "meaning": "O Rei de Copas representa maturidade emocional, liderança calma, sabedoria e diplomacia. Ele domina suas emoções sem reprimi-las.",
+    "down_meaning": "Repressão emocional, mudanças de humor, manipulação, volátil.",
+    "id": 49
+  },
+  {
+    "name": "Ás de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "clareza",
+      "verdade",
+      "avanço",
+      "nova ideia",
+      "clareza mental"
+    ],
+    "meaning": "O Ás de Espadas representa clareza mental, ideia inovadora, verdade revelada e ação decisiva. É um momento poderoso de insight que corta a confusão.",
+    "down_meaning": "Confusão, desinformação, pensamento confuso, julgamento obscurecido.",
+    "id": 50
+  },
+  {
+    "name": "Dois de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "decisão difícil",
+      "impasse",
+      "emoções bloqueadas",
+      "evasão"
+    ],
+    "meaning": "O Dois de Espadas representa uma decisão difícil e um impasse, indicando emoções bloqueadas diante da necessidade de escolher entre duas opções. Você sabe a resposta — tire a venda e veja claramente.",
+    "down_meaning": "Indecisão paralisante, liberação da negação, excesso de informações.",
+    "id": 51
+  },
+  {
+    "name": "Três de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "coração partido",
+      "tristeza",
+      "luto",
+      "traição",
+      "verdade dolorosa"
+    ],
+    "meaning": "O Três de Espadas representa um coração partido, tristeza, luto, traição e verdade dolorosa. Trata-se de uma ferida emocional penetrante — a dor é real, mas também é o começo da cura.",
+    "down_meaning": "Recuperação do coração partido, cura, liberação da dor, perdão.",
+    "id": 52
+  },
+  {
+    "name": "Quatro de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "descanso",
+      "recuperação",
+      "meditação",
+      "contemplação",
+      "retiro"
+    ],
+    "meaning": "O Quatro de Espadas indica a necessidade de descanso, recuperação, meditação e pausa mental. Sua mente precisa de um descanso — afaste-se, recarregue-se e restaure sua energia antes de seguir em frente.",
+    "down_meaning": "Inquietação, esgotamento, incapaz de descansar, resistência à recuperação.",
+    "id": 53
+  },
+  {
+    "name": "Cinco de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "conflito",
+      "derrota",
+      "perda",
+      "tensão",
+      "vencer a qualquer custo"
+    ],
+    "meaning": "O Cinco de Espadas traz a energia do conflito, da derrota e da tensão, mostrando a vontade de vencer a qualquer custo. Embora você possa ganhar a batalha, é importante considerar se essa luta realmente vale a pena, pois pode acabar perdendo a guerra.",
+    "down_meaning": "Reconciliação, superação do conflito, perdão, paz.",
+    "id": 54
+  },
+  {
+    "name": "Seis de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "transição",
+      "seguir em frente",
+      "deixar para trás",
+      "jornada",
+      "cura"
+    ],
+    "meaning": "O Seis de Espadas representa uma transição, um momento de seguir em frente e deixar para trás águas turbulentas. Essa carta indica uma jornada rumo à paz. Você carrega feridas, mas está se dirigindo a águas mais calmas.",
+    "down_meaning": "Resistência à mudança, passado não resolvido, evitar a transição.",
+    "id": 55
+  },
+  {
+    "name": "Sete de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "engano",
+      "estratégia",
+      "furtividade",
+      "truques",
+      "fugir impune"
+    ],
+    "meaning": "O Sete de Espadas representa engano, estratégia, furtividade e astúcia. Seja estratégico, mas verifique sua integridade. Alguém pode não estar dizendo toda a verdade.",
+    "down_meaning": "Revelação, confissão, honestidade restaurada.",
+    "id": 56
+  },
+  {
+    "name": "Oito de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "sentir-se preso",
+      "restrição autoimposta",
+      "pensamentos negativos",
+      "mentalidade de vítima"
+    ],
+    "meaning": "O Oito de Espadas revela uma sensação de estar preso por restrições autoimpostas, resultado de padrões de pensamento negativos. Essa prisão existe apenas na sua mente, e as amarras que a seguram são frouxas o bastante para que você possa se libertar.",
+    "down_meaning": "Libertação, nova perspectiva, liberação de crenças limitantes.",
+    "id": 57
+  },
+  {
+    "name": "Nove de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "ansiedade",
+      "preocupação",
+      "medo",
+      "pesadelo",
+      "pensar demais"
+    ],
+    "meaning": "O Nove de Espadas representa ansiedade, preocupação, medo e pesadelos, refletindo o ato de pensar demais. Sua mente cria cenários catastróficos, mas as coisas raramente são tão ruins quanto seus medos sugerem.",
+    "down_meaning": "Liberação da preocupação, surgimento da esperança, busca de ajuda, superação do medo.",
+    "id": 58
+  },
+  {
+    "name": "Dez de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "fundo do poço",
+      "fim",
+      "conclusão dolorosa",
+      "traição",
+      "crise"
+    ],
+    "meaning": "O Dez de Espadas representa o fundo do poço, um fim doloroso, traição e crise. Este é o momento mais sombrio antes do amanhecer — as coisas não podem piorar, só melhorar a partir daqui.",
+    "down_meaning": "Recuperação, lições aprendidas, melhora, sobrevivência.",
+    "id": 59
+  },
+  {
+    "name": "Pajem de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "curiosidade",
+      "novas ideias",
+      "agilidade mental",
+      "comunicação",
+      "busca intelectual"
+    ],
+    "meaning": "O Pajem de Espadas representa curiosidade, novas ideias, agilidade mental e sede de conhecimento. Revela uma mente aguçada, ansiosa para aprender e comunicar novas descobertas.",
+    "down_meaning": "Fofoca, comunicação descuidada, pensamentos dispersos, cinismo.",
+    "id": 60
+  },
+  {
+    "name": "Cavaleiro de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "ação",
+      "velocidade",
+      "ambição",
+      "determinação",
+      "foco"
+    ],
+    "meaning": "A carta Cavaleiro de Espadas traz a energia da ação audaciosa, velocidade e ambição, indicando que é momento de avançar com ímpeto. Mova-se com propósito e determinação, mas não deixe que a velocidade comprometa sua direção.",
+    "down_meaning": "Imprudência, esgotamento, dispersão de energia, agressividade.",
+    "id": 61
+  },
+  {
+    "name": "Rainha de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "pensamento claro",
+      "comunicação direta",
+      "independência",
+      "sabedoria",
+      "honestidade"
+    ],
+    "meaning": "A Rainha de Espadas representa pensamento claro, comunicação direta e independência, sendo uma porta-voz da verdade. Ela enxerga através das ilusões e fala a verdade com clareza.",
+    "down_meaning": "Frieza, amargura, julgamento severo, crítica excessiva.",
+    "id": 62
+  },
+  {
+    "name": "Rei de Espadas",
+    "suit": "Espadas",
+    "keywords": [
+      "verdade",
+      "autoridade",
+      "ética",
+      "clareza mental",
+      "justiça"
+    ],
+    "meaning": "O Rei de Espadas representa a verdade, a autoridade, a liderança ética, a clareza mental e a justiça. É um líder justo que valoriza a verdade e a integridade intelectual acima de tudo.",
+    "down_meaning": "Abuso de poder, manipulação, rigidez, lógica fria.",
+    "id": 63
+  },
+  {
+    "name": "Ás de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "nova oportunidade financeira",
+      "prosperidade",
+      "capital inicial",
+      "novo emprego",
+      "abundância"
+    ],
+    "meaning": "O Ás de Ouros representa uma nova oportunidade financeira, prosperidade, capital inicial e um novo emprego, indicando um começo material. Trata-se de uma base sólida para construir riqueza e segurança.",
+    "down_meaning": "Oportunidade perdida, perda financeira, instabilidade, planejamento ruim.",
+    "id": 64
+  },
+  {
+    "name": "Dois de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "equilíbrio",
+      "malabarismo",
+      "adaptabilidade",
+      "prioridades",
+      "gestão de recursos"
+    ],
+    "meaning": "O Dois de Ouros representa o malabarismo de prioridades, equilíbrio, adaptabilidade e gestão de recursos. A vida requer flexibilidade — mantenha as bolas no ar sem deixar cair o que importa.",
+    "down_meaning": "Sobrecarga, desequilíbrio, deixar cair as bolas, desorganização financeira.",
+    "id": 65
+  },
+  {
+    "name": "Três de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "trabalho em equipe",
+      "colaboração",
+      "desenvolvimento de habilidades",
+      "aprendizado",
+      "trabalho de qualidade"
+    ],
+    "meaning": "O Três de Ouros representa trabalho em equipe, colaboração, trabalho qualificado e aprendizado. Essa carta lembra que grandes coisas são construídas juntos, destacando a importância de compartilhar suas habilidades e aprender com os outros.",
+    "down_meaning": "Falta de trabalho em equipe, baixa qualidade, desvalorização das habilidades, desalinhamento.",
+    "id": 66
+  },
+  {
+    "name": "Quatro de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "economia",
+      "segurança",
+      "conservação",
+      "acumulação",
+      "controle"
+    ],
+    "meaning": "O Quatro de Ouros representa segurança financeira, economia, conservadorismo e apego. A segurança é importante, mas certifique-se de que seu apego não esteja impedindo o crescimento.",
+    "down_meaning": "Ganância, mesquinharia, gastos excessivos, abrir mão do controle.",
+    "id": 67
+  },
+  {
+    "name": "Cinco de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "dificuldade financeira",
+      "perda",
+      "isolamento",
+      "insegurança",
+      "sentir-se excluído"
+    ],
+    "meaning": "O Cinco de Ouros representa momentos de dificuldade financeira e perda, acompanhados da sensação de estar deixado de fora no frio. Esses tempos difíceis são temporários, e é importante buscar ajuda fora, que você ainda não percebeu.",
+    "down_meaning": "Recuperação da dificuldade, encontrar apoio, abundância espiritual.",
+    "id": 68
+  },
+  {
+    "name": "Seis de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "generosidade",
+      "doação",
+      "caridade",
+      "compartilhar",
+      "equilíbrio de recursos"
+    ],
+    "meaning": "O Seis de Ouros representa generosidade, tanto em doar quanto em receber, caridade e equilíbrio de recursos. Ele mostra que o fluxo de riqueza é saudável quando damos e recebemos em equilíbrio.",
+    "down_meaning": "Condições ocultas, desequilíbrio, desigualdade, generosidade unilateral.",
+    "id": 69
+  },
+  {
+    "name": "Sete de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "paciência",
+      "investimento a longo prazo",
+      "avaliação",
+      "revisão",
+      "avaliação da colheita"
+    ],
+    "meaning": "O Sete de Ouros traz a mensagem de paciência, avaliação e revisão do investimento a longo prazo. Você plantou sementes — agora afaste-se e avalie se seus esforços estão dando frutos.",
+    "down_meaning": "Esforço desperdiçado, investimento ruim, impaciência, desânimo.",
+    "id": 70
+  },
+  {
+    "name": "Oito de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "diligência",
+      "artesanato",
+      "desenvolvimento de habilidades",
+      "maestria",
+      "trabalho árduo"
+    ],
+    "meaning": "O Oito de Ouros representa diligência e artesanato, indicando a importância da prática dedicada e da maestria alcançada por meio da repetição. Foque em aprimorar seu ofício, pois a excelência vem do esforço constante.",
+    "down_meaning": "Perfeccionismo, falta de motivação, trabalho malfeito, atalhos.",
+    "id": 71
+  },
+  {
+    "name": "Nove de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "luxo",
+      "independência",
+      "sucesso financeiro",
+      "auto-suficiência",
+      "elegância"
+    ],
+    "meaning": "O Nove de Ouros representa luxo, independência financeira, auto-suficiência e elegância. Seu trabalho árduo lhe trouxe conforto e abundância — aproveite os frutos do seu esforço.",
+    "down_meaning": "Reveses financeiros, dependência excessiva dos outros, luxo falso.",
+    "id": 72
+  },
+  {
+    "name": "Dez de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "legado",
+      "riqueza familiar",
+      "herança",
+      "sucesso a longo prazo",
+      "tradição"
+    ],
+    "meaning": "O Dez de Ouros representa o legado, a riqueza familiar, o sucesso a longo prazo, a herança e a tradição. Essa carta fala sobre construir algo que dura além de você — riqueza que atravessa gerações.",
+    "down_meaning": "Conflito familiar por dinheiro, perda de herança, fracasso financeiro.",
+    "id": 73
+  },
+  {
+    "name": "Pajem de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "ambição",
+      "aprendizado",
+      "nova habilidade",
+      "oportunidade financeira",
+      "praticidade"
+    ],
+    "meaning": "O Pajem de Ouros representa ambição, aprendizado e uma nova oportunidade financeira, indicando que é o momento de dar um passo prático. Está pronto para aprender e construir, começando com o primeiro pequeno passo rumo ao seu objetivo.",
+    "down_meaning": "Falta de progresso, procrastinação, preguiça, aprendizado perdido.",
+    "id": 74
+  },
+  {
+    "name": "Cavaleiro de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "metódico",
+      "confiável",
+      "trabalhador",
+      "consistente",
+      "cumpridor de dever"
+    ],
+    "meaning": "O Cavaleiro de Ouros representa alguém metódico, confiável, trabalhador, paciente e focado no dever. Devagar e sempre vence a corrida — o esforço cuidadoso leva a resultados duradouros.",
+    "down_meaning": "Teimosia, preguiça, procrastinação, tédio, estagnação.",
+    "id": 75
+  },
+  {
+    "name": "Rainha de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "nutridora",
+      "prática",
+      "abundância",
+      "segurança",
+      "calor terrestre"
+    ],
+    "meaning": "A Rainha de Ouros é nutridora, prática e abundante, focada na segurança e no calor terrestre. Ela cria um lar acolhedor e abundante e administra os recursos com sabedoria.",
+    "down_meaning": "Negligência, insegurança financeira, sufocamento, desequilíbrio entre trabalho e vida pessoal.",
+    "id": 76
+  },
+  {
+    "name": "Rei de Ouros",
+    "suit": "Ouros",
+    "keywords": [
+      "riqueza",
+      "sucesso",
+      "liderança empresarial",
+      "abundância",
+      "generosidade"
+    ],
+    "meaning": "O Rei de Ouros representa riqueza, sucesso, liderança empresarial, abundância e generosidade. Ele domina o mundo material e compartilha sua abundância.",
+    "down_meaning": "Ganância, desperdício, má gestão financeira, materialismo.",
+    "id": 77
+  }
+]
