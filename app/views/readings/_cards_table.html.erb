@@ -1,26 +1,15 @@
-<% celtic_cross_labels = [
-  "1. Presente | 2. Influência iminente",
-  "slot",
-  "Destino",
-  "Passado distante",
-  "Passado recente",
-  "Futuro",
-  "Consulente",
-  "Desenvolver da situação",
-  "Emoções internas",
-  "Resultado final"
-] %>
 
 <div class="celtic-cross-table" data-controller="card-flip">
   <% cards.each_with_index do |card, index| %>
     <% position_class = "pos-#{index + 1}" %>
 
     <div class="reading-card-show-slot <%= position_class %>">
-      <span class="reading-card-show-position-label"><%= if [0, 1].include?(index)
-      celtic_cross_labels[0]
-    else
-      "#{index + 1}. #{celtic_cross_labels[index]}"
-    end %></span>
+      <span class="reading-card-show-position-label">
+        <%= if [0, 1].include?(index)
+          "#{index + 1}. #{@celtic_cross_labels[index]} | #{index + 2}. #{@celtic_cross_labels[index+1]}"
+        else
+          "#{index + 1}. #{@celtic_cross_labels[index]}"
+        end %></span>
 
       <div class="reading-card-show"
            data-card-flip-target="card"
