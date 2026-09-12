@@ -1,57 +1,13 @@
-
-.ia-chat {
-  grid-area: iachat;
-  overflow-y: auto; /* Permite rolagem quando tiver muitas mensagens */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.mensagem-ia {
-  background-color: #e9ecef;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-.mensagem-user {
-  background-color: #d1e7dd;
-  padding: 10px;
-  border-radius: 8px;
-  align-self: flex-end; /* Alinha à direita */
-  width: 80%;
-}
-
-.cartas-area {
-  grid-area: cartas;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ia-chat { grid-area: iachat; }
-.user-chat {
-  grid-area: userchat;
-  display: flex;
-  align-items: center;
-}
-.user-chat input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
 /* Layouts */
-.three-card-table {
+.three-reading-card-show-table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  max-width: 600px;
+  justify-content: center;
   margin: 0 auto;
 }
 
-.six-card-table {
+.six-reading-card-show-table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -64,10 +20,19 @@
 .celtic-cross-table {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, minmax(190px, auto)); /* altura mínima fixa por linha */
   gap: 0.75rem;
   max-width: 900px;
   margin: 0 auto;
+  align-items: start; /* evita esticar o slot pra preencher a célula toda */
+}
+
+/* Slot dentro da celtic cross: carta + painel de significado empilhados */
+.celtic-cross-table .reading-card-show-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
 }
 
 /* Celtic cross positions (traditional numbering) */
@@ -82,17 +47,39 @@
 .celtic-cross-table .pos-9  { grid-column: 5; grid-row: 2; }               /* hopes/fears */
 .celtic-cross-table .pos-10 { grid-column: 5; grid-row: 1; }               /* outcome */
 
-/* Flippable card */
-.card-slot { display: flex; flex-direction: column; align-items: center; }
-
-.card {
-  width: 100%;
-  aspect-ratio: 2 / 3;
-  perspective: 1000px;
-  cursor: pointer;
+/* Flippable reading-card-show */
+.reading-card-show-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
 }
 
-.card-inner {
+/* Carta com tamanho fixo 100x170px e moldura dourada */
+.reading-card-show-slot .reading-card-show {
+  width: 100px !important;
+  height: 170px !important;
+  max-width: 100px !important;
+  min-width: 0 !important;
+  flex: none !important;
+  perspective: 1000px;
+  cursor: pointer;
+
+  border: 1px solid #ead7a5;
+  border-radius: 16px;
+  background-color: #fffdf8;
+  box-sizing: border-box;
+
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Borda extra / destaque quando a carta está virada */
+.reading-card-show-slot .reading-card-show.flipped {
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+.reading-card-show-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -100,38 +87,49 @@
   transform-style: preserve-3d;
 }
 
-.card.flipped .card-inner {
+.reading-card-show.flipped .reading-card-show-inner {
   transform: rotateY(180deg);
 }
 
-.card-back,
-.card-front {
+.reading-card-show-back,
+.reading-card-show-front {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 8px;
+  border-radius: 16px; /* acompanha o raio da moldura do .reading-card-show */
   overflow: hidden;
 }
 
-.card-back {
+.reading-card-show-back {
   background: linear-gradient(135deg, #2b1055, #7597de);
   border: 2px solid #d4af37;
 }
 
-.card-front {
+.reading-card-show-front {
   transform: rotateY(180deg);
   background: #fff;
 }
 
-.card-face-img {
+.reading-card-show-face-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 /* Meaning panel, shown only after flipping */
-.card-meaning-panel {
+.reading-card-show-meaning-panel {
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.85rem;
+  width: 100px;
+}
+
+/*frame da carta (usado em outros layouts, ex: six-reading-card-show-table, celtic-cross-table)*/
+.tarot-frame-reading {
+  border: 1px solid #ead7a5;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffdf8;
 }

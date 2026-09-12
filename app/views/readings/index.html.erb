@@ -1,9 +1,10 @@
-<div class="container-fluid p-0 bg-light" style="min-height: 100vh;">
-  <div class="row g-0 justify-content-center pt-5">
-    <div class="col-10 reading-form-section">
-      <div class="card reading-form-card border-0 shadow-sm">
-        <div class="card-body p-5">
-
+<div class="readings-index">
+  <div class="container-fluid">
+    <div class="daily-card-label">
+      <span></span>
+      <p class="mb-0">Suas leituras</p>
+      <span></span>
+    </div>
           <div class="daily-card-label justify-content-center mb-3">
             <span></span>
             <p class="mb-0">TODAS AS SUAS LEITURAS</p>
@@ -40,7 +41,11 @@
               <% end %>
             </ul>
           </div>
+        <% end %>
       </div>
-    </div>
+    <% else %>
+      <p class="readings-empty">Você ainda não fez nenhuma leitura.</p>
+      <%= link_to "Fazer a primeira", new_reading_path, class: "btn reading-button" %>
+    <% end %>
   </div>
 </div>

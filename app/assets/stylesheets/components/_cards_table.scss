@@ -1,0 +1,42 @@
+.ia-chat {
+  grid-area: iachat;
+  overflow-y: auto; /* Permite rolagem quando tiver muitas mensagens */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mensagem-ia {
+  background-color: #e9ecef;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.mensagem-user {
+  background-color: #d1e7dd;
+  padding: 10px;
+  border-radius: 8px;
+  align-self: flex-end; /* Alinha à direita */
+  width: 80%;
+}
+
+.cartas-area {
+  grid-area: cartas;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ia-chat { grid-area: iachat; }
+.user-chat {
+  grid-area: userchat;
+  display: flex;
+  align-items: center;
+}
+.user-chat input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
