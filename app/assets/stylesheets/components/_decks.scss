@@ -1,0 +1,74 @@
+.decks-index,
+.deck-show,
+.card-show {
+  padding: 40px;
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+.deck-card {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.deck-card:hover {
+  transform: translateY(-4px);
+}
+
+.deck-card-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #181851;
+  margin-bottom: 8px;
+}
+
+.deck-card-count {
+  color: #b7791f;
+  margin-bottom: 0;
+}
+
+.deck-card-item {
+  border: 1px solid #ead7a5;
+  border-radius: 12px;
+  background-color: #fffdf8;
+  transition: transform 0.2s;
+}
+
+.deck-card-item:hover {
+  transform: translateY(-4px);
+  border-color: #b7791f;
+}
+
+.deck-card-number {
+  color: #b7791f;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.deck-card-name {
+  color: #181851;
+  margin-bottom: 4px;
+}
+
+.deck-card-suit {
+  color: #888780;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.deck-show-count,
+.card-show-meta {
+  color: #b7791f;
+}
+
+.card-show-subtitle {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #181851;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}

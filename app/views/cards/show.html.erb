@@ -1,0 +1,45 @@
+<div class="card-show">
+  <div class="container-fluid">
+    <div class="daily-card-label">
+      <span></span>
+      <p class="mb-0"><%= @deck.name %></p>
+      <span></span>
+    </div>
+
+    <div class="row align-items-start">
+      <div class="col-12 col-md-4 text-center">
+        <div class="tarot-frame mx-auto">
+          <div class="tarot-card-placeholder">
+            IMAGEM DA CARTA
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8">
+        <h1 class="tarot-card-title"><%= @card.card %></h1>
+
+        <% if @card.keywords.present? %>
+          <p class="card-keywords"><%= @card.keywords.join(" • ") %></p>
+        <% end %>
+
+        <p class="card-show-meta">
+          Carta <%= @card.card_number %><% if @card.suit.present? %> · <%= @card.suit %><% end %>
+        </p>
+
+        <div class="reading-divider">
+          <span></span>
+        </div>
+
+        <h3 class="card-show-subtitle">Significado</h3>
+        <p><%= @card.meaning %></p>
+
+        <% if @card.down_meaning.present? %>
+          <h3 class="card-show-subtitle">Invertida</h3>
+          <p><%= @card.down_meaning %></p>
+        <% end %>
+
+        <%= link_to "Voltar ao baralho", deck_path(@deck), class: "btn reading-button mt-4" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="decks-index">
+  <div class="daily-card-label">
+    <span></span>
+    <p class="mb-0">Baralhos</p>
+    <span></span>
+  </div>
+
+  <h1 class="tarot-card-title">Escolha um baralho</h1>
+
+  <div class="row">
+    <% @decks.each do |deck| %>
+      <div class="col-12 col-md-4 mb-4">
+        <%= link_to deck_path(deck), class: "text-decoration-none" do %>
+          <div class="card deck-card border-0 shadow-sm h-100">
+            <div class="card-body p-4 text-center">
+              <h2 class="deck-card-title"><%= deck.name %></h2>
+              <p class="deck-card-count"><%= deck.cards.count %> cartas</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
