@@ -15,6 +15,7 @@
                         new_reading_path,
                         class: "btn reading-button" %>
           </div>
+          <% if @readings.any? %>
           <div>
             <ul class="list-group">
               <% @readings.each do |reading| %>
@@ -41,8 +42,6 @@
               <% end %>
             </ul>
           </div>
-        <% end %>
-      </div>
     <% else %>
       <p class="readings-empty">Você ainda não fez nenhuma leitura.</p>
       <%= link_to "Fazer a primeira", new_reading_path, class: "btn reading-button" %>
