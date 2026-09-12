@@ -1,53 +1,10 @@
 
-.ia-chat {
-  grid-area: iachat;
-  overflow-y: auto; /* Permite rolagem quando tiver muitas mensagens */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.mensagem-ia {
-  background-color: #e9ecef;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-.mensagem-user {
-  background-color: #d1e7dd;
-  padding: 10px;
-  border-radius: 8px;
-  align-self: flex-end; /* Alinha à direita */
-  width: 80%;
-}
-
-.cartas-area {
-  grid-area: cartas;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ia-chat { grid-area: iachat; }
-.user-chat {
-  grid-area: userchat;
-  display: flex;
-  align-items: center;
-}
-.user-chat input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
 /* Layouts */
 .three-card-table {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  max-width: 600px;
+  justify-content: center;
   margin: 0 auto;
 }
 
@@ -83,13 +40,23 @@
 .celtic-cross-table .pos-10 { grid-column: 5; grid-row: 1; }               /* outcome */
 
 /* Flippable card */
-.card-slot { display: flex; flex-direction: column; align-items: center; }
+.card-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
 
+/* Carta com tamanho fixo 100x170px e moldura dourada */
 .card {
-  width: 100%;
-  aspect-ratio: 2 / 3;
+  width: 100px;
+  height: 170px;
   perspective: 1000px;
   cursor: pointer;
+
+  border: 1px solid #ead7a5;
+  border-radius: 16px;
+  background-color: #fffdf8;
 }
 
 .card-inner {
@@ -109,7 +76,7 @@
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 8px;
+  border-radius: 16px; /* acompanha o raio da moldura do .card */
   overflow: hidden;
 }
 
@@ -134,4 +101,15 @@
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.85rem;
+  width: 100px;
+}
+
+/*frame da carta (usado em outros layouts, ex: six-card-table, celtic-cross-table)*/
+.tarot-frame-reading {
+  border: 1px solid #ead7a5;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fffdf8;
 }
