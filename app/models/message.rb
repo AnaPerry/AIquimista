@@ -3,13 +3,14 @@ class Message < ApplicationRecord
 
   MAX_USER_MESSAGE = 10
 
+  acts_as_message chat_class: "Reading",
+                  chat_foreign_key: "reading_id"
 
+  # private
 
-  private
-
-  def user_message_limit
-    if chat.messege.where(role: "user").count >= MAX_USER_MESSAGE
-      errors.add(:content, "You can only send #{MAX_USER_MESSAGE} messages per chat.")
-    end
-  end
+  # # def user_message_limit
+  # #   if chat.messege.where(role: "user").count >= MAX_USER_MESSAGE
+  # #     errors.add(:content, "You can only send #{MAX_USER_MESSAGE} messages per chat.")
+  # #   end
+  # # end
 end
