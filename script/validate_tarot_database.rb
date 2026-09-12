@@ -17,7 +17,7 @@ require "json"
 translations_path = Rails.root.join(
   "db",
   "data",
-  "tarot_cards_pt_br.json"
+  "tarot_cards_pt_br_improved.json"
 )
 
 translated_cards = JSON.parse(File.read(translations_path))

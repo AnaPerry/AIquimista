@@ -34,6 +34,22 @@ translations_by_id = translations.index_by { |card| card["id"] }
 
 puts "Traducoes PT-BR encontradas: #{translations.count}"
 
+# MEANINGS MELHORADOS
+# Carrega a versao revisada dos meanings.
+# Os demais campos continuam vindo do arquivo de traducao original.
+
+improved_path = Rails.root.join(
+  "db",
+  "data",
+  "tarot_cards_pt_br_improved.json"
+)
+
+improved_cards = JSON.parse(File.read(improved_path))
+
+improved_by_id = improved_cards.index_by { |card| card["id"] }
+
+puts "Meanings melhorados encontrados: #{improved_cards.count}"
+
 # FONTE 2 - mixvlad/TarotCards
 # Repositorio usado como fonte das imagens dos tres decks:
 # Rider-Waite-Smith, Tarot de Marseille e Sola Busca.
@@ -45,6 +61,7 @@ puts "Traducoes PT-BR encontradas: #{translations.count}"
 rider_waite_files_uri = URI(
   "https://api.github.com/repos/mixvlad/TarotCards/contents/tarot/rider-waite/full"
 )
+
 request = Net::HTTP::Get.new(rider_waite_files_uri)
 request["User-Agent"] = "AIquimista"
 
@@ -63,6 +80,7 @@ rider_waite_files = JSON.parse(rider_waite_response.body)
 marseille_metadata_uri = URI(
   "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/marseille/metadata.json"
 )
+
 marseille_metadata =
   JSON.parse(Net::HTTP.get(marseille_metadata_uri))
 
@@ -71,8 +89,10 @@ marseille_metadata =
 sola_busca_metadata_uri = URI(
   "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/sola-busca/metadata.json"
 )
+
 sola_busca_metadata =
   JSON.parse(Net::HTTP.get(sola_busca_metadata_uri))
+
 
 # MAPEAMENTO PARA RIDER-WAITE E MARSEILLE
 
@@ -96,13 +116,15 @@ minor_numbers = {
 }
 
 # Nos arquivos do Rider-Waite e Marseille,
-# Corrige a diferenca de nomenclatura do naipe Pentacles
-# que aparece abreviado como "Pents"
+# corrige a diferenca de nomenclatura do naipe Pentacles,
+# que aparece abreviado como "Pents".
 suit_mapping = {
   "Pentacles" => "Pents"
 }
 
+
 # CRIACAO DOS DECKS
+
 rider_waite_deck = Deck.find_or_create_by!(
   name: "Rider-Waite-Smith"
 )
@@ -119,6 +141,7 @@ puts "Decks criados:"
 puts rider_waite_deck.name
 puts marseille_deck.name
 puts sola_busca_deck.name
+
 
 # LOGICA DE ASSOCIACAO DAS CARTAS COM AS IMAGENS
 #
@@ -149,8 +172,14 @@ puts sola_busca_deck.name
 #   indice 0 -> 00.jpg, indice 1 -> 01.jpg ... indice 77 -> 77.jpg.
 #
 # Em todos os decks, os dados da carta sao atualizados com
-# find_or_initialize_by + assign_attributes + save!, permitindo que
+# find_by + assign_attributes + save!, permitindo que
 # o seed funcione tanto para registros novos quanto para existentes.
+#
+# Os campos name, suit, down_meaning e keywords sao obtidos do arquivo:
+# db/data/tarot_cards_pt_br.json
+#
+# O campo meaning e obtido do arquivo revisado:
+# db/data/tarot_cards_pt_br_improved.json
 
 
 # CRIACAO DAS 78 CARTAS DO RIDER-WAITE-SMITH
@@ -159,6 +188,7 @@ puts "Criando cartas do Rider-Waite-Smith..."
 
 cards_data.each do |card_data|
   translated = translations_by_id.fetch(card_data["id"])
+  improved = improved_by_id.fetch(card_data["id"])
 
   if card_data["arcana"] == "Major"
     number = card_data["number"].to_i
@@ -167,7 +197,6 @@ cards_data.each do |card_data|
     image_file = rider_waite_files.find do |file|
       file["name"].start_with?(expected_prefix)
     end
-
   else
     suit = suit_mapping[card_data["suit"]] || card_data["suit"]
     number = minor_numbers[card_data["number"]]
@@ -182,22 +211,22 @@ cards_data.each do |card_data|
   raise "Imagem Rider-Waite nao encontrada para #{card_data["name"]}" unless image_file
 
   card = Card.find_by(
-  deck: rider_waite_deck,
-  card: [card_data["name"], translated["name"]]
-) || Card.new(deck: rider_waite_deck)
+    deck: rider_waite_deck,
+    card: [card_data["name"], translated["name"]]
+  ) || Card.new(deck: rider_waite_deck)
 
-card.assign_attributes(
-  card: translated["name"],
-  card_number: card_data["arcana"] == "Major" ?
-    card_data["number"].to_i :
-    minor_numbers[card_data["number"]],
-  suit: translated["suit"],
-  meaning: translated["meaning"],
-  down_meaning: translated["down_meaning"],
-  keywords: translated["keywords"]
-)
+  card.assign_attributes(
+    card: translated["name"],
+    card_number: card_data["arcana"] == "Major" ?
+      card_data["number"].to_i :
+      minor_numbers[card_data["number"]],
+    suit: translated["suit"],
+    meaning: improved["meaning"],
+    down_meaning: translated["down_meaning"],
+    keywords: translated["keywords"]
+  )
 
-card.save!
+  card.save!
 
   unless card.image.attached?
     card.image.attach(
@@ -212,6 +241,7 @@ end
 
 puts "Rider-Waite-Smith finalizado: #{rider_waite_deck.cards.count} cartas."
 
+
 # CRIACAO DAS 78 CARTAS DO TAROT DE MARSEILLE
 
 puts "Criando cartas do Tarot de Marseille..."
@@ -224,49 +254,45 @@ end
 
 cards_data.each do |card_data|
   translated = translations_by_id.fetch(card_data["id"])
+  improved = improved_by_id.fetch(card_data["id"])
 
   if card_data["arcana"] == "Major"
-
     number = card_data["number"].to_i
     expected_prefix = format("%02d_", number)
 
     image_data = marseille_metadata["cards"].find do |image|
       image["card"].start_with?(expected_prefix)
     end
-
   else
-
     suit = suit_mapping[card_data["suit"]] || card_data["suit"]
     number = minor_numbers[card_data["number"]]
 
     expected_filename = "#{suit}#{format('%02d', number)}.png"
 
     image_data = marseille_files_by_name[expected_filename]
-
   end
 
   raise "Imagem Marseille nao encontrada para #{card_data["name"]}" unless image_data
 
-card = Card.find_by(
-  deck: marseille_deck,
-  card: [card_data["name"], translated["name"]]
-) || Card.new(deck: marseille_deck)
+  card = Card.find_by(
+    deck: marseille_deck,
+    card: [card_data["name"], translated["name"]]
+  ) || Card.new(deck: marseille_deck)
 
-card.assign_attributes(
-  card: translated["name"],
-  card_number: card_data["arcana"] == "Major" ?
-    card_data["number"].to_i :
-    minor_numbers[card_data["number"]],
-  suit: translated["suit"],
-  meaning: translated["meaning"],
-  down_meaning: translated["down_meaning"],
-  keywords: translated["keywords"]
-)
+  card.assign_attributes(
+    card: translated["name"],
+    card_number: card_data["arcana"] == "Major" ?
+      card_data["number"].to_i :
+      minor_numbers[card_data["number"]],
+    suit: translated["suit"],
+    meaning: improved["meaning"],
+    down_meaning: translated["down_meaning"],
+    keywords: translated["keywords"]
+  )
 
-card.save!
+  card.save!
 
   unless card.image.attached?
-
     image_url =
       "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/marseille/full/#{image_data["card"]}"
 
@@ -283,6 +309,7 @@ end
 
 puts "Tarot de Marseille finalizado: #{marseille_deck.cards.count} cartas."
 
+
 # CRIACAO DAS 78 CARTAS DO SOLA BUSCA
 
 puts "Criando cartas do Sola Busca..."
@@ -297,10 +324,12 @@ end
 
 cards_data.each_with_index do |card_data, index|
   translated = translations_by_id.fetch(card_data["id"])
+  improved = improved_by_id.fetch(card_data["id"])
+
   # Usa a posicao da carta para encontrar a imagem correspondente.
   # Exemplo:
-  # The Fool      -> 00.jpg
-  # The Magician  -> 01.jpg
+  # The Fool -> 00.jpg
+  # The Magician -> 01.jpg
   # ...
   # King of Pentacles -> 77.jpg
 
@@ -310,26 +339,25 @@ cards_data.each_with_index do |card_data, index|
 
   raise "Imagem Sola Busca nao encontrada para #{card_data["name"]}" unless image_data
 
-card = Card.find_by(
-  deck: sola_busca_deck,
-  card: [card_data["name"], translated["name"]]
-) || Card.new(deck: sola_busca_deck)
+  card = Card.find_by(
+    deck: sola_busca_deck,
+    card: [card_data["name"], translated["name"]]
+  ) || Card.new(deck: sola_busca_deck)
 
-card.assign_attributes(
-  card: translated["name"],
-  card_number: card_data["arcana"] == "Major" ?
-    card_data["number"].to_i :
-    minor_numbers[card_data["number"]],
-  suit: translated["suit"],
-  meaning: translated["meaning"],
-  down_meaning: translated["down_meaning"],
-  keywords: translated["keywords"]
-)
+  card.assign_attributes(
+    card: translated["name"],
+    card_number: card_data["arcana"] == "Major" ?
+      card_data["number"].to_i :
+      minor_numbers[card_data["number"]],
+    suit: translated["suit"],
+    meaning: improved["meaning"],
+    down_meaning: translated["down_meaning"],
+    keywords: translated["keywords"]
+  )
 
-card.save!
+  card.save!
 
   unless card.image.attached?
-
     image_url =
       "https://raw.githubusercontent.com/mixvlad/TarotCards/main/tarot/sola-busca/full/#{image_data["card"]}"
 
@@ -339,7 +367,6 @@ card.save!
       content_type: "image/jpeg",
       identify: false
     )
-
   end
 
   puts "Criada: #{card.card}"
