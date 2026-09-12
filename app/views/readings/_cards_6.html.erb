@@ -1,6 +1,18 @@
+<% six_cards_labels = [
+  "1. Situação atual",
+  "2. Obstáculo/Desafio",
+  "3. Passado",
+  "4. Futuro",
+  "5. Você",
+  "6. Resultado"
+] %>
+
 <div class="six-reading-card-show-table" data-controller="card-flip">
-  <% @cards.each do |card| %>
-    <div class="reading-card-show-slot">
+  <% cards.each_with_index do |card, index| %>
+    <% position_class = "pos-#{index + 1}" %>
+
+    <div class="reading-card-show-slot <%= position_class %>">
+      <span class="reading-card-show-position-label"><%= six_cards_labels[index] %></span>
 
       <div class="reading-card-show"
            data-card-flip-target="card"
@@ -26,7 +38,6 @@
         <strong data-card-flip-target="name"></strong>
         <p data-card-flip-target="text"></p>
       </div>
-
     </div>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 <% celtic_cross_labels = [
-  "Presente",
-  "Influencia iminente",
+  "1. Presente | 2. Influência iminente",
+  "slot",
   "Destino",
   "Passado distante",
   "Passado recente",
@@ -16,7 +16,11 @@
     <% position_class = "pos-#{index + 1}" %>
 
     <div class="reading-card-show-slot <%= position_class %>">
-      <span class="reading-card-show-position-label"><%= "#{index + 1}. #{celtic_cross_labels[index]}" %></span>
+      <span class="reading-card-show-position-label"><%= if [0, 1].include?(index)
+      celtic_cross_labels[0]
+    else
+      "#{index + 1}. #{celtic_cross_labels[index]}"
+    end %></span>
 
       <div class="reading-card-show"
            data-card-flip-target="card"

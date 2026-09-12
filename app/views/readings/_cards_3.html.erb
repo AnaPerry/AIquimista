@@ -1,6 +1,15 @@
+<% three_cards_labels = [
+  "1. Passado",
+  "2. Presente",
+  "3. Futuro"
+] %>
+
 <div class="three-reading-card-show-table" data-controller="card-flip">
-  <% @cards.each do |card| %>
-    <div class="reading-card-show-slot">
+  <% cards.each_with_index do |card, index| %>
+    <% position_class = "pos-#{index + 1}" %>
+
+    <div class="reading-card-show-slot <%= position_class %>">
+      <span class="reading-card-show-position-label"><%= three_cards_labels[index] %></span>
 
       <div class="reading-card-show"
            data-card-flip-target="card"
@@ -26,7 +35,6 @@
         <strong data-card-flip-target="name"></strong>
         <p data-card-flip-target="text"></p>
       </div>
-
     </div>
   <% end %>
 </div>
