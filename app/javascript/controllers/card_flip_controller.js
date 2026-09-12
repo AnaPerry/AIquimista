@@ -11,6 +11,7 @@ export default class extends Controller {
     const name     = card.dataset.cardName
     const meaning  = card.dataset.cardMeaning || "Meaning unavailable."
     const reversed = card.dataset.cardReversed === "true"
+    const position = card.dataset.position
 
     // load the image only now (real lazy load)
     const img = card.querySelector("[data-card-flip-target='image']")
@@ -22,14 +23,15 @@ export default class extends Controller {
     card.classList.add("flipped")
     card.classList.toggle("reversed", reversed) // ativa a borda vermelha via CSS
 
-    // show the meaning panel right below the card
-    const slot  = card.closest(".reading-card-show-slot")
-    const panel = slot.querySelector("[data-card-flip-target='panel']")
-    const name_ = slot.querySelector("[data-card-flip-target='name']")
-    const text  = slot.querySelector("[data-card-flip-target='text']")
+    // busca o painel correspondente pela posição, não pela proximidade no DOM
+    const panel = this.element.querySelector(`[data-card-flip-target='panel'][data-position="${position}"]`)
+    if (!panel) return
+
+    const name_ = panel.querySelector("[data-card-flip-target='name']")
+    const text  = panel.querySelector("[data-card-flip-target='text']")
 
     if (name_) name_.textContent = reversed ? `${name} (Invertida)` : name
     if (text) text.textContent = meaning
-    if (panel) panel.hidden = false
+    panel.hidden = false
   }
 }

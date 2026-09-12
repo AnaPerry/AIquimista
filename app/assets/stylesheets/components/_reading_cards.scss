@@ -20,11 +20,11 @@
 .celtic-cross-table {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(4, minmax(190px, auto)); /* altura mínima fixa por linha */
+  grid-template-rows: repeat(4, minmax(190px, auto));
   gap: 0.75rem;
   max-width: 900px;
   margin: 0 auto;
-  align-items: start; /* evita esticar o slot pra preencher a célula toda */
+  align-items: start;
 }
 
 /* Slot dentro da celtic cross: carta + painel de significado empilhados */
@@ -35,18 +35,40 @@
   width: 100px;
 }
 
+/* Rótulo de posição em cima da carta */
+.reading-card-show-position-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #8a5a5a;
+  text-align: center;
+  margin-bottom: 0.35rem;
+  line-height: 1.1;
+  width: 100px;
+}
+
 /* Celtic cross positions (traditional numbering) */
-.celtic-cross-table .pos-1  { grid-column: 2; grid-row: 2; }                              /* assunto central */
-.celtic-cross-table .pos-2  { grid-column: 2; grid-row: 2; }                              /* oposição (cruza a pos-1) */
-.celtic-cross-table .pos-2 .reading-card-show { transform: rotate(90deg); }               /* rotaciona só a carta, não o painel de significado */
-.celtic-cross-table .pos-3  { grid-column: 2; grid-row: 1; }                              /* consciente - topo */
-.celtic-cross-table .pos-4  { grid-column: 2; grid-row: 3; }                              /* inconsciente - base */
-.celtic-cross-table .pos-5  { grid-column: 3; grid-row: 2; }                              /* passado - direita da cruz */
-.celtic-cross-table .pos-6  { grid-column: 1; grid-row: 2; }                              /* futuro - esquerda da cruz */
-.celtic-cross-table .pos-7  { grid-column: 5; grid-row: 4; }                              /* consulente - base da coluna */
-.celtic-cross-table .pos-8  { grid-column: 5; grid-row: 3; }                              /* desenvolver da situação */
-.celtic-cross-table .pos-9  { grid-column: 5; grid-row: 2; }                              /* conselho */
-.celtic-cross-table .pos-10 { grid-column: 5; grid-row: 1; }      
+.celtic-cross-table .pos-1  { grid-column: 2; grid-row: 2; }
+.celtic-cross-table .pos-2  { grid-column: 2; grid-row: 2; }
+.celtic-cross-table .pos-2 .reading-card-show { transform: rotate(90deg); }
+.celtic-cross-table .pos-3  { grid-column: 2; grid-row: 1; }
+.celtic-cross-table .pos-4  { grid-column: 2; grid-row: 3; }
+.celtic-cross-table .pos-5  { grid-column: 3; grid-row: 2; }
+.celtic-cross-table .pos-6  { grid-column: 1; grid-row: 2; }
+.celtic-cross-table .pos-7  { grid-column: 5; grid-row: 4; }
+.celtic-cross-table .pos-8  { grid-column: 5; grid-row: 3; }
+.celtic-cross-table .pos-9  { grid-column: 5; grid-row: 2; }
+.celtic-cross-table .pos-10 { grid-column: 5; grid-row: 1; }
+
+/* Container que agrupa os dois painéis de significado (pos-1 e pos-2), abaixo da cruz central */
+.celtic-cross-meanings-1-2 {
+  grid-column: 2;
+  grid-row: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
 
 /* Flippable reading-card-show */
 .reading-card-show-slot {
@@ -83,7 +105,7 @@
 /* Borda diferenciada quando a carta virada é invertida (reversa) */
 .reading-card-show-slot .reading-card-show.flipped.reversed {
   border: 2px solid #a83232;
-  box-shadow: 0 0 12px rgba(168, 50, 50, 0.4);
+  box-shadow: 0 0 12px rgba(168, 50, 55, 0.4);
 }
 
 .reading-card-show-inner {
@@ -103,7 +125,7 @@
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
-  border-radius: 16px; /* acompanha o raio da moldura do .reading-card-show */
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -124,7 +146,7 @@
   transition: transform 0.3s ease;
 }
 
-/* Imagem invertida (carta reversa) — gira só a imagem, não a moldura */
+/* Imagem invertida (carta reversa) */
 .reading-card-show-face-img.reversed {
   transform: rotate(180deg);
 }
@@ -137,7 +159,7 @@
   width: 100px;
 }
 
-/*frame da carta (usado em outros layouts, ex: six-reading-card-show-table, celtic-cross-table)*/
+/* frame da carta (usado em outros layouts) */
 .tarot-frame-reading {
   border: 1px solid #ead7a5;
   border-radius: 16px;
