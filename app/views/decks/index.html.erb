@@ -1,24 +1,55 @@
 <div class="decks-index">
-  <div class="daily-card-label">
-    <span></span>
-    <p class="mb-0">Baralhos</p>
-    <span></span>
-  </div>
+  <div class="container-fluid">
+    <div class="daily-card-label">
+      <span></span>
+      <p class="mb-0">Baralhos</p>
+      <span></span>
+    </div>
 
-  <h1 class="tarot-card-title">Escolha um baralho</h1>
+    <h1 class="tarot-card-title">Escolha um baralho</h1>
 
-  <div class="row">
-    <% @decks.each do |deck| %>
-      <div class="col-12 col-md-4 mb-4">
-        <%= link_to deck_path(deck), class: "text-decoration-none" do %>
+    <% decks_info = {
+      "Rider-Waite-Smith" => {
+        imagem: "RIDER-WAITE-SMITH.png",
+        texto: "O baralho mais lido do mundo. Cada carta é uma cena habitada: há sempre alguém ali, fazendo alguma coisa, num lugar que você reconhece. A leitura acontece quando você entra nessa cena — o que a figura está olhando, o que ela deixou para trás, o que carrega na mão. Desde 1909 é assim que a maioria das pessoas aprende a escutar as cartas."
+      },
+      "Tarot de Marseille" => {
+        imagem: "MARSEILLE.png",
+        texto: "Nas cartas menores não há cena, só símbolos dispostos no espaço. O que emerge vem do encontro entre elas, do número que cada uma carrega, da direção em que as figuras olham. É uma leitura que se constrói no conjunto e costuma chegar a lugares que a imagem sozinha não alcançaria."
+      },
+      "Sola Busca" => {
+        imagem: "SOLA-BUSCA.png",
+        texto: "Gravado em 1491, o mais antigo que sobreviveu inteiro. As figuras são guerreiros romanos e o simbolismo é alquímico: transformação, matéria que se transmuta, processos que levam tempo. Quem trabalha com ele costuma dizer que fala menos do que vai acontecer e mais do que está se formando."
+      }
+    } %>
+
+    <div class="row">
+      <% @decks.each do |deck| %>
+        <% info = decks_info[deck.name] %>
+        <div class="col-12 col-md-4 mb-4">
           <div class="card deck-card border-0 shadow-sm h-100">
-            <div class="card-body p-4 text-center">
-              <h2 class="deck-card-title"><%= deck.name %></h2>
+            <% if info %>
+              <%= link_to deck_path(deck) do %>
+                <%= image_tag info[:imagem], class: "img-fluid deck-cover" %>
+              <% end %>
+            <% end %>
+
+            <div class="card-body p-4">
+              <%= link_to deck_path(deck), class: "text-decoration-none" do %>
+                <h2 class="deck-card-title"><%= deck.name %></h2>
+              <% end %>
+
               <p class="deck-card-count"><%= deck.cards.count %> cartas</p>
+
+              <% if info %>
+                <p class="deck-card-description"><%= info[:texto] %></p>
+              <% end %>
+
+              <%= link_to "Saiba mais", deck_path(deck), class: "btn reading-button" %>
             </div>
           </div>
-        <% end %>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
