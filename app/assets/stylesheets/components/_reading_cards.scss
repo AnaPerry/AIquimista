@@ -36,16 +36,17 @@
 }
 
 /* Celtic cross positions (traditional numbering) */
-.celtic-cross-table .pos-1  { grid-column: 2; grid-row: 2; }               /* present situation */
-.celtic-cross-table .pos-2  { grid-column: 2; grid-row: 2; transform: rotate(90deg); } /* challenge, crosses pos 1 */
-.celtic-cross-table .pos-3  { grid-column: 2; grid-row: 3; }               /* foundation */
-.celtic-cross-table .pos-4  { grid-column: 1; grid-row: 2; }               /* recent past */
-.celtic-cross-table .pos-5  { grid-column: 2; grid-row: 1; }               /* goal */
-.celtic-cross-table .pos-6  { grid-column: 3; grid-row: 2; }               /* near future */
-.celtic-cross-table .pos-7  { grid-column: 5; grid-row: 4; }               /* self */
-.celtic-cross-table .pos-8  { grid-column: 5; grid-row: 3; }               /* environment */
-.celtic-cross-table .pos-9  { grid-column: 5; grid-row: 2; }               /* hopes/fears */
-.celtic-cross-table .pos-10 { grid-column: 5; grid-row: 1; }               /* outcome */
+.celtic-cross-table .pos-1  { grid-column: 2; grid-row: 2; }                              /* assunto central */
+.celtic-cross-table .pos-2  { grid-column: 2; grid-row: 2; }                              /* oposição (cruza a pos-1) */
+.celtic-cross-table .pos-2 .reading-card-show { transform: rotate(90deg); }               /* rotaciona só a carta, não o painel de significado */
+.celtic-cross-table .pos-3  { grid-column: 2; grid-row: 1; }                              /* consciente - topo */
+.celtic-cross-table .pos-4  { grid-column: 2; grid-row: 3; }                              /* inconsciente - base */
+.celtic-cross-table .pos-5  { grid-column: 3; grid-row: 2; }                              /* passado - direita da cruz */
+.celtic-cross-table .pos-6  { grid-column: 1; grid-row: 2; }                              /* futuro - esquerda da cruz */
+.celtic-cross-table .pos-7  { grid-column: 5; grid-row: 4; }                              /* consulente - base da coluna */
+.celtic-cross-table .pos-8  { grid-column: 5; grid-row: 3; }                              /* desenvolver da situação */
+.celtic-cross-table .pos-9  { grid-column: 5; grid-row: 2; }                              /* conselho */
+.celtic-cross-table .pos-10 { grid-column: 5; grid-row: 1; }      
 
 /* Flippable reading-card-show */
 .reading-card-show-slot {
