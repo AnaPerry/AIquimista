@@ -1,6 +1,6 @@
-  <div class="celtic-cross-table" data-controller="card-flip">
-    <% cards.each_with_index do |card, index| %>
-      <% position_class = "pos-#{index + 1}" %>
+  <div class="three-card-table" data-controller="card-flip">
+    <% @cards.each_with_index do |card, index| %>
+      <% position_class = "pos-3-#{index + 1}" %>
 
       <div class="card-slot <%= position_class %>">
         <div class="card"
