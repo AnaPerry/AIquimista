@@ -1,8 +1,8 @@
-  <div class="six-card-table" data-controller="card-flip">
+<div class="six-reading-card-show-table" data-controller="card-flip">
   <% @cards.each do |card| %>
-    <div class="card-slot">
+    <div class="reading-card-show-slot">
 
-      <div class="card"
+      <div class="reading-card-show"
            data-card-flip-target="card"
            data-card-name="<%= card.card %>"
            data-card-image="<%= card.image.attached? ? url_for(card.image) : "" %>"
@@ -12,16 +12,16 @@
            tabindex="0"
            aria-label="Flip card">
 
-        <div class="card-inner">
-          <div class="card-back" aria-hidden="true"></div>
+        <div class="reading-card-show-inner">
+          <div class="reading-card-show-back" aria-hidden="true"></div>
 
-          <div class="card-front">
-            <img data-card-flip-target="image" class="card-face-img" alt="" loading="lazy">
+          <div class="reading-card-show-front">
+            <img data-card-flip-target="image" class="reading-card-show-face-img" alt="" loading="lazy">
           </div>
         </div>
       </div>
 
-      <div class="card-meaning-panel" data-card-flip-target="panel" hidden>
+      <div class="reading-card-show-meaning-panel" data-card-flip-target="panel" hidden>
         <strong data-card-flip-target="name"></strong>
         <p data-card-flip-target="text"></p>
       </div>
