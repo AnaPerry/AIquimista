@@ -13,7 +13,13 @@
           <div class="row">
             <!-- Mesa de Tarot -->
             <div class="col-md-8 d-flex justify-content-center">
+              <% if @reading.style = "3"%>
+              <%= render "cards_3", cards: @cards, style: @reading.style %>
+              <% elsif @reading.style = "6" %>
+              <%= render "cards_6", cards: @cards, style: @reading.style %>
+              <% else %>
               <%= render "cards_table", cards: @cards, style: @reading.style %>
+              <% end %>
             </div>
 
             <!-- O Chat da IA -->
