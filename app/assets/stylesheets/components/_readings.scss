@@ -1,0 +1,53 @@
+.readings-index {
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #fafafa;
+}
+
+.reading-card {
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.reading-card:hover {
+  transform: translateY(-4px);
+}
+
+.reading-card-date {
+  color: #b7791f;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.reading-card-subject {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #181851;
+  margin-bottom: 8px;
+}
+
+.reading-card-meta {
+  color: #888780;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.reading-delete-button {
+  color: #a32d2d;
+  border: 1px solid #a32d2d;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.reading-delete-button:hover {
+  background-color: #a32d2d;
+  color: white;
+}
+
+.readings-empty {
+  color: #888780;
+  margin-bottom: 20px;
+}
