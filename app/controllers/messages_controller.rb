@@ -16,6 +16,10 @@ class MessagesController < ApplicationController
   end
 
   def instructions
-    "responda em markdown"
+    "você vai fazer uma análise de leitura de tarot.
+    o assunto da leitura é #{@reading.subject},
+    as cartas que saíram foram:
+    #{@reading.cards.map {|c| "#{c.card} que significa #{c.meaning}"}.join("\n\n")}
+    reponda em português, usando markdown"
   end
 end
