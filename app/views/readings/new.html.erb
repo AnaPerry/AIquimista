@@ -10,7 +10,9 @@
           </div>
 
           <%= simple_form_for(@reading) do |f| %>
-            <%= f.input :subject, label: "Sobre o que é a leitura?", placeholder: "Ex: minha vida amorosa" %>
+            <%= f.input :subject,collection: [["Amor", "amor"], ["Carreira", "carreira"]],
+                label: "Sobre o que é a leitura?",
+                include_blank: "Escolha o tema" %>
             <%= f.association :deck, label: "Baralho", include_blank: "Escolha um baralho" %>
             <%= f.input :style, collection: [["3 cartas", "3"], ["6 cartas", "6"], ["10 cartas", "10"]], label: "Tipo de tiragem", include_blank: "Escolha a tiragem" %>
 
@@ -19,8 +21,8 @@
             </div>
             <div class="d-flex justify-content-center">
               <%= f.submit "Criar leitura", class: "btn reading-button" %>
-              <% end %>
             </div>
+          <% end %>
         </div>
       </div>
     </div>
