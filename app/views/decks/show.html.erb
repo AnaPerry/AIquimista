@@ -1,0 +1,38 @@
+<div class="deck-show">
+  <div class="container-fluid">
+    <div class="daily-card-label">
+      <span></span>
+      <p class="mb-0">Baralho</p>
+      <span></span>
+    </div>
+
+    <h1 class="tarot-card-title"><%= @deck.name %></h1>
+
+    <p class="deck-show-count"><%= @cards.count %> cartas</p>
+
+    <div class="reading-divider">
+      <span></span>
+    </div>
+
+    <div class="row">
+      <% @cards.each do |card| %>
+        <div class="col-6 col-md-3 col-lg-2 mb-4">
+          <%= link_to deck_card_path(@deck, card), class: "text-decoration-none" do %>
+            <div class="card deck-card-item border-0 h-100">
+              <% if card.image.attached? %>
+                <%= image_tag card.image, class: "img-fluid deck-card-thumb" %>
+              <% end %>
+              <div class="card-body p-3 text-center">
+                <p class="deck-card-number"><%= card.card_number %></p>
+                <p class="deck-card-name"><%= card.card %></p>
+                <p class="deck-card-suit"><%= card.suit %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= link_to "Voltar aos baralhos", decks_path, class: "btn reading-button mt-4" %>
+  </div>
+</div>
