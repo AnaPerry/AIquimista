@@ -79,6 +79,12 @@
   box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
 }
 
+/* Borda diferenciada quando a carta virada é invertida (reversa) */
+.reading-card-show-slot .reading-card-show.flipped.reversed {
+  border: 2px solid #a83232;
+  box-shadow: 0 0 12px rgba(168, 50, 50, 0.4);
+}
+
 .reading-card-show-inner {
   position: relative;
   width: 100%;
@@ -114,6 +120,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Imagem invertida (carta reversa) — gira só a imagem, não a moldura */
+.reading-card-show-face-img.reversed {
+  transform: rotate(180deg);
 }
 
 /* Meaning panel, shown only after flipping */

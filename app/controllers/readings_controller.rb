@@ -5,6 +5,7 @@ class ReadingsController < ApplicationController
     @message = Message.new
     @messages = @reading.messages
     @cards = @reading.cards.includes(image_attachment: :blob)
+    @cards.each { |card| card.reversed = [true, false].sample }
   end
 
   def new
