@@ -5,4 +5,10 @@ class Card < ApplicationRecord
 
   has_many :reading_cards, dependent: :destroy
   has_many :readings, through: :reading_cards
+
+  attr_accessor :reversed
+
+  def reversed?
+    !!reversed
+  end
 end
