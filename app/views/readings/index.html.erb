@@ -1,41 +1,52 @@
-<div class="container-fluid p-0 bg-light" style="min-height: 100vh;">
-  <div class="row g-0 justify-content-center pt-5">
-    <div class="col-10 reading-form-section">
-      <div class="card reading-form-card border-0 shadow-sm">
-        <div class="card-body p-5">
-
-          <div class="daily-card-label justify-content-center mb-3">
-            <span></span>
-            <p class="mb-0">TODAS AS SUAS LEITURAS</p>
-            <span></span>
-          </div>
-          <div>
-            <ul class="list-group">
-              <% @readings.each do |reading| %>
-                <li class="list-group-item">
-                  <div class="row">
-                    <div class="col-10">
-                      <strong>Date of the reading: </strong><%= reading.created_at.strftime("%d/%m/%Y %H:%M") %>
-                      <br><strong>Reading style: </strong><%= "#{reading.style} cards"%>
-                      <br><strong>Deck of the reading: </strong><%=reading.deck.name%>
-                      <br><strong>Reading subject: </strong><%= reading.subject%>
-                    </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center">
-                      <%= link_to reading_path(reading), class: "btn btn-dark" do %>
-                        <i class="fa-solid fa-eye text-white"></i>
-                      <% end %>
-                    </div>
-                    <div class="col-1 d-flex justify-content-center align-items-center">
-                      <%= link_to reading_path(reading), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" do %>
-                        <i class="fa-solid fa-trash text-white"></i>
-                      <% end %>
-                    </div>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-      </div>
+<div class="readings-index">
+  <div class="container-fluid">
+    <div class="daily-card-label">
+      <span></span>
+      <p class="mb-0">Suas leituras</p>
+      <span></span>
     </div>
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+      <h1 class="tarot-card-title mb-0">Histórico</h1>
+      <%= link_to "Nova leitura", new_reading_path, class: "btn reading-button" %>
+    </div>
+
+    <div class="reading-divider">
+      <span></span>
+    </div>
+
+    <% if @readings.any? %>
+      <div class="row">
+        <% @readings.each do |reading| %>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card reading-card border-0 shadow-sm h-100">
+              <div class="card-body p-4">
+                <p class="reading-card-date">
+                  <%= reading.created_at.strftime("%d/%m/%Y às %H:%M") %>
+                </p>
+
+                <h2 class="reading-card-subject"><%= reading.subject %></h2>
+
+                <p class="reading-card-meta">
+                  <%= reading.style %> cartas · <%= reading.deck.name %>
+                </p>
+
+                <div class="d-flex gap-2 mt-3">
+                  <%= link_to "Ver leitura", reading_path(reading), class: "btn reading-button" %>
+                  <%= link_to reading_path(reading),
+                      data: { turbo_method: :delete, turbo_confirm: "Apagar esta leitura?" },
+                      class: "btn reading-delete-button" do %>
+                    <i class="fa-solid fa-trash"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="readings-empty">Você ainda não fez nenhuma leitura.</p>
+      <%= link_to "Fazer a primeira", new_reading_path, class: "btn reading-button" %>
+    <% end %>
   </div>
 </div>
