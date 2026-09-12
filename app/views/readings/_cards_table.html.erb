@@ -1,8 +1,23 @@
+<% celtic_cross_labels = [
+  "Presente",
+  "Influencia iminente",
+  "Destino",
+  "Passado distante",
+  "Passado recente",
+  "Futuro",
+  "Consulente",
+  "Desenvolver da situação",
+  "Emoções internas",
+  "Resultado final"
+] %>
+
 <div class="celtic-cross-table" data-controller="card-flip">
   <% cards.each_with_index do |card, index| %>
     <% position_class = "pos-#{index + 1}" %>
 
     <div class="reading-card-show-slot <%= position_class %>">
+      <span class="reading-card-show-position-label"><%= "#{index + 1}. #{celtic_cross_labels[index]}" %></span>
+
       <div class="reading-card-show"
            data-card-flip-target="card"
            data-card-name="<%= card.card %>"
@@ -23,10 +38,24 @@
         </div>
       </div>
 
-      <div class="reading-card-show-meaning-panel" data-card-flip-target="panel" hidden>
-        <strong data-card-flip-target="name"></strong>
-        <p data-card-flip-target="text"></p>
-      </div>
+      <% unless index == 0 || index == 1 %>
+        <div class="reading-card-show-meaning-panel" data-card-flip-target="panel" hidden>
+          <strong data-card-flip-target="name"></strong>
+          <p data-card-flip-target="text"></p>
+        </div>
+      <% end %>
     </div>
   <% end %>
+
+  <!-- Painéis de significado da pos-1 e pos-2, empilhados numa célula própria abaixo da cruz -->
+  <div class="celtic-cross-meanings-1-2">
+    <div class="reading-card-show-meaning-panel" data-card-flip-target="panel" hidden>
+      <strong data-card-flip-target="name"></strong>
+      <p data-card-flip-target="text"></p>
+    </div>
+    <div class="reading-card-show-meaning-panel" data-card-flip-target="panel" hidden>
+      <strong data-card-flip-target="name"></strong>
+      <p data-card-flip-target="text"></p>
+    </div>
+  </div>
 </div>
