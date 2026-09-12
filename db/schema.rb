@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_12_171112) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_12_180003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -64,10 +64,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_12_171112) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
+    t.integer "input_tokens"
+    t.integer "model_id"
+    t.integer "output_tokens"
     t.bigint "reading_id", null: false
     t.string "role"
+    t.bigint "tool_call_id"
     t.datetime "updated_at", null: false
     t.index ["reading_id"], name: "index_messages_on_reading_id"
+    t.index ["tool_call_id"], name: "index_messages_on_tool_call_id"
   end
 
   create_table "reading_cards", force: :cascade do |t|
@@ -83,12 +88,26 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_12_171112) do
   create_table "readings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.bigint "deck_id", null: false
+    t.integer "model_id"
     t.string "style"
     t.string "subject"
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["deck_id"], name: "index_readings_on_deck_id"
     t.index ["user_id"], name: "index_readings_on_user_id"
+  end
+
+  create_table "tool_calls", force: :cascade do |t|
+    t.text "arguments"
+    t.datetime "created_at", null: false
+    t.bigint "message_id", null: false
+    t.string "name"
+    t.bigint "parent_tool_call_id"
+    t.bigint "result_id"
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_tool_calls_on_message_id"
+    t.index ["parent_tool_call_id"], name: "index_tool_calls_on_parent_tool_call_id"
+    t.index ["result_id"], name: "index_tool_calls_on_result_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -109,8 +128,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_12_171112) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "messages", "readings"
+  add_foreign_key "messages", "tool_calls"
   add_foreign_key "reading_cards", "cards"
   add_foreign_key "reading_cards", "readings"
   add_foreign_key "readings", "decks"
   add_foreign_key "readings", "users"
+  add_foreign_key "tool_calls", "messages"
+  add_foreign_key "tool_calls", "tool_calls", column: "parent_tool_call_id"
+  add_foreign_key "tool_calls", "tool_calls", column: "result_id"
 end
