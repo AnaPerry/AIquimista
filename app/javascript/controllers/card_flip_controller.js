@@ -18,7 +18,7 @@ export default class extends Controller {
     card.classList.add("flipped")
 
     // show the meaning panel right below the card
-    const slot  = card.closest(".card-slot")
+    const slot  = card.closest(".reading-card-show-slot")
     const panel = slot.querySelector("[data-card-flip-target='panel']")
     const name_ = slot.querySelector("[data-card-flip-target='name']")
     const text  = slot.querySelector("[data-card-flip-target='text']")

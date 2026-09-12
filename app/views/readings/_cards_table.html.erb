@@ -1,31 +1,31 @@
-  <div class="celtic-cross-table" data-controller="card-flip">
-    <% cards.each_with_index do |card, index| %>
-      <% position_class = "pos-#{index + 1}" %>
+<div class="celtic-cross-table" data-controller="card-flip">
+  <% cards.each_with_index do |card, index| %>
+    <% position_class = "pos-#{index + 1}" %>
 
-      <div class="card-slot <%= position_class %>">
-        <div class="card"
-             data-card-flip-target="card"
-             data-card-name="<%= card.card %>"
-             data-card-image="<%= card.image.attached? ? url_for(card.image) : "" %>"
-             data-card-meaning="<%= card.meaning %>"
-             data-action="click->card-flip#flip keydown.enter->card-flip#flip"
-             role="button"
-             tabindex="0"
-             aria-label="Flip card">
+    <div class="reading-card-show-slot <%= position_class %>">
+      <div class="reading-card-show"
+           data-card-flip-target="card"
+           data-card-name="<%= card.card %>"
+           data-card-image="<%= card.image.attached? ? url_for(card.image) : "" %>"
+           data-card-meaning="<%= card.meaning %>"
+           data-action="click->card-flip#flip keydown.enter->card-flip#flip"
+           role="button"
+           tabindex="0"
+           aria-label="Flip card">
 
-          <div class="card-inner">
-            <div class="card-back" aria-hidden="true"></div>
+        <div class="reading-card-show-inner">
+          <div class="reading-card-show-back" aria-hidden="true"></div>
 
-            <div class="card-front">
-              <img data-card-flip-target="image" class="card-face-img" alt="" loading="lazy">
-            </div>
+          <div class="reading-card-show-front">
+            <img data-card-flip-target="image" class="reading-card-show-face-img" alt="" loading="lazy">
           </div>
         </div>
-
-        <div class="card-meaning-panel" data-card-flip-target="panel" hidden>
-          <strong data-card-flip-target="name"></strong>
-          <p data-card-flip-target="text"></p>
-        </div>
       </div>
-    <% end %>
-  </div>
+
+      <div class="reading-card-show-meaning-panel" data-card-flip-target="panel" hidden>
+        <strong data-card-flip-target="name"></strong>
+        <p data-card-flip-target="text"></p>
+      </div>
+    </div>
+  <% end %>
+</div>
