@@ -9,6 +9,11 @@
             <p class="mb-0">TODAS AS SUAS LEITURAS</p>
             <span></span>
           </div>
+          <div class="text-center mb-4">
+            <%= link_to "Nova leitura",
+                        new_reading_path,
+                        class: "btn reading-button" %>
+          </div>
           <div>
             <ul class="list-group">
               <% @readings.each do |reading| %>
